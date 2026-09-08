@@ -993,7 +993,7 @@
                                 🐉
                                 <div class="header-status"></div>
                             </div>
-                            <span class="header-name" id="playerNameDisplay">deimov</span>
+                            <span class="header-name" id="playerNameDisplay">boardrd</span>
                         </div>
                     </div>
                     <div class="header-balance" id="crashHeaderBalance">0.00</div>
@@ -1131,7 +1131,7 @@
         function initUser() {
             tgUser = tg.initDataUnsafe?.user;
             if (!tgUser) {
-                tgUser = { id: 123456, username: 'deimov', first_name: 'Deimov' };
+                tgUser = { id: 123456, username: 'boardrd', first_name: 'Boardrd' };
             }
             currentUserId = tgUser.id;
             userData = getUserData(currentUserId);
@@ -1740,43 +1740,34 @@
         }
 
         // =============================================
-        // ===== ТОП =====
+        // ===== НОВАЯ ЛОГИКА КАЗНЫ (CRASH POINT) =====
         // =============================================
-        function updateTopList() {
-            const container = document.getElementById('topList');
-            const db = getDB();
-            
-            const users = Object.entries(db)
-                .filter(([id, data]) => data.balance > 0 || data.bonusBalance > 0)
-                .map(([id, data]) => ({
-                    id: id,
-                    name: data.name || 'Игрок',
-                    balance: (data.balance || 0) + (data.bonusBalance || 0),
-                    refs: data.referrals?.length || 0
-                }))
-                .sort((a, b) => b.balance - a.balance)
-                .slice(0, 20);
+        function calculateCrashPoint(bets) {
+            // 1. Считаем общую сумму ставок в раунде
+            let totalBet = bets.reduce((sum, b) => sum + b.amount, 0);
 
-            if (users.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:13px;text-align:center;padding:20px;">Нет игроков в топе</div>';
-                return;
+            // 2. Определяем максимальный множитель в зависимости от суммы
+            let maxMultiplier = 99; // по умолчанию
+            if (totalBet <= 100) {
+                maxMultiplier = 500;
+            } else if (totalBet <= 1000) {
+                maxMultiplier = 99;
+            } else if (totalBet <= 10000) {
+                maxMultiplier = 20;
+            } else {
+                maxMultiplier = 3;
             }
 
-            const medals = ['🥇', '🥈', '🥉'];
-            container.innerHTML = users.map((user, index) => {
-                const place = index + 1;
-                const medal = place <= 3 ? medals[place - 1] : `#${place}`;
-                const isCurrent = user.id == currentUserId;
-                return `
-                    <div class="top-item" style="${isCurrent ? 'border-color:#7B2FBE;background:#2A1F3A;' : ''}">
-                        <div class="place ${place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : ''}">${medal}</div>
-                        <div class="avatar">${isCurrent ? '🐉' : '👤'}</div>
-                        <div class="name">${user.name} ${isCurrent ? '⭐' : ''}</div>
-                        <div class="balance">${user.balance.toFixed(2)} BCN</div>
-                        <div style="font-size:10px;color:#5A5A6A;">👥 ${user.refs}</div>
-                    </div>
-                `;
-            }).join('');
+            // 3. Генерируем случайный множитель в диапазоне от 1.01 до maxMultiplier
+            let baseMultiplier = 1 + Math.random() * (maxMultiplier - 1);
+
+            // 4. 60% ШАНС, ЧТО МНОЖИТЕЛЬ НЕ ПРЕВЫСИТ 2.00 (СКРЫТО ОТ ИГРОКОВ)
+            if (Math.random() < 0.6) {
+                baseMultiplier = Math.min(baseMultiplier, 1 + Math.random() * 1); // от 1.01 до 2.00
+            }
+
+            // 5. Округляем до 2 знаков
+            return Math.round(baseMultiplier * 100) / 100;
         }
 
         // =============================================
@@ -1800,23 +1791,6 @@
         let hasBetInRound = false;
         let currentGame = null;
         let crashBetAmount = 0;
-
-        function calculateCrashPoint(bets) {
-            let totalBet = bets.reduce((sum, b) => sum + b.amount, 0);
-            let baseMultiplier = 1 + Math.random() * 99;
-            
-            let penalty = 1;
-            if (totalBet > 10) penalty *= 0.95;
-            if (totalBet > 50) penalty *= 0.90;
-            if (totalBet > 100) penalty *= 0.85;
-            if (totalBet > 250) penalty *= 0.75;
-            if (totalBet > 500) penalty *= 0.60;
-            if (totalBet > 1000) penalty *= 0.40;
-            
-            let finalMultiplier = Math.max(1.01, baseMultiplier * penalty);
-            finalMultiplier += (Math.random() - 0.5) * 0.5;
-            return Math.round(finalMultiplier * 100) / 100;
-        }
 
         function initCrash() {
             crashCanvas = document.getElementById('crashCanvas');
@@ -1985,6 +1959,7 @@
             crashHistory = [];
             playerCashedOut = false;
 
+            // ===== НОВАЯ ЛОГИКА КАЗНЫ =====
             crashPoint = calculateCrashPoint(activeBets);
 
             document.getElementById('crashActionBtn').textContent = '💰 Забрать';
@@ -2194,21 +2169,6 @@
         function closeResult() {
             document.getElementById('resultPopup').classList.remove('show');
         }
-
-        // =============================================
-        // ===== ПРИНУДИТЕЛЬНЫЙ ПОКАЗ АДМИНКИ =====
-        // =============================================
-        setTimeout(() => {
-            const promoSection = document.getElementById('adminPromoSection');
-            const adminTab = document.getElementById('adminTabBtn');
-            if (promoSection) {
-                promoSection.style.display = 'block';
-                console.log('✅ Админ-панель принудительно показана');
-            }
-            if (adminTab) {
-                adminTab.style.display = 'block';
-            }
-        }, 800);
 
         // =============================================
         // ===== ИНИЦИАЛИЗАЦИЯ =====
