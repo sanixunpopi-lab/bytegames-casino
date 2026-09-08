@@ -1071,7 +1071,7 @@
         const DEPOSIT_ADDRESS = '@boardrd';
         const CHANNEL_LINK = 'https://t.me/bytecasinos';
         const CHANGE_NAME_COST = 5000;
-        const ADMIN_ID = 8698280423;        // ТВОЙ ID (БЕЗ КАВЫЧЕК!)
+        const ADMIN_ID = 8698280423;        // ТВОЙ ID
         const ADMIN_USERNAME = 'boardrd';   // ТВОЙ ЮЗЕРНЕЙМ (БЕЗ @)
 
         // =============================================
@@ -2196,6 +2196,21 @@
         }
 
         // =============================================
+        // ===== ПРИНУДИТЕЛЬНЫЙ ПОКАЗ АДМИНКИ =====
+        // =============================================
+        setTimeout(() => {
+            const promoSection = document.getElementById('adminPromoSection');
+            const adminTab = document.getElementById('adminTabBtn');
+            if (promoSection) {
+                promoSection.style.display = 'block';
+                console.log('✅ Админ-панель принудительно показана');
+            }
+            if (adminTab) {
+                adminTab.style.display = 'block';
+            }
+        }, 800);
+
+        // =============================================
         // ===== ИНИЦИАЛИЗАЦИЯ =====
         // =============================================
         document.addEventListener('DOMContentLoaded', () => {
@@ -2224,6 +2239,8 @@
         console.log('👤 Пользователь:', tgUser);
         console.log('📊 Баланс:', userData?.balance);
         console.log('👥 Рефералов:', userData?.referrals?.length);
+        console.log('👑 Админ ID:', ADMIN_ID);
+        console.log('👑 Админ username:', ADMIN_USERNAME);
     </script>
 </body>
 </html>
