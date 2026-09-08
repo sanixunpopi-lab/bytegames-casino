@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ByteGames - Crash</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- ВСЕ СТИЛИ ОСТАВЬ КАК БЫЛИ (я их сжал для экономии места, но ты можешь оставить свои) -->
     <style>
+        /* ===== ГЛОБАЛЬНЫЕ СТИЛИ (сжато, но можно оставить свои) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -924,12 +926,24 @@
                     <div class="card">
                         <h3>💰 Пополнение через Bytecoin</h3>
                         <div class="info">
-                            Нажми кнопку ниже для пополнения через Bytecoin.<br>
-                            После перевода средства зачислятся автоматически!
+                            Нажми кнопку ниже, чтобы открыть Bytecoin и перевести деньги.<br>
+                            После перевода средства зачислятся <strong>автоматически</strong>!
                         </div>
-                        <button class="btn-action" onclick="openBytecoinDeposit()" style="width:100%;padding:16px;font-size:18px;background:#7B2FBE;">
+
+                        <!-- Кнопка для открытия Bytecoin -->
+                        <button class="btn-action" onclick="openBytecoinDeposit()" style="width:100%;padding:16px;font-size:18px;background:#7B2FBE;margin-bottom:12px;">
                             🚀 Пополнить через Bytecoin
                         </button>
+
+                        <!-- Поле для ручного зачисления (для теста) -->
+                        <div style="border-top:1px solid #2A2438;padding-top:12px;margin-top:4px;">
+                            <div style="font-size:12px;color:#8A8A9A;margin-bottom:8px;">⬇️ Для теста — введи сумму и нажми "Подтвердить"</div>
+                            <div class="input-group">
+                                <input type="number" id="manualDepositAmount" placeholder="Сумма (BCN)" min="1" step="1">
+                                <button class="btn-action green" onclick="manualDeposit()">✅ Подтвердить</button>
+                            </div>
+                        </div>
+
                         <div id="depositStatus" class="status-msg"></div>
                     </div>
                 </div>
@@ -1234,8 +1248,7 @@
                 document.getElementById('playerNameDisplay').textContent = tgUser.first_name;
             }
 
-            const refLink =
-                `https://t.me/${tg.botInfo?.username || 'bytegames_bot'}?start=ref_${userData.refCode}`;
+            const refLink = `https://t.me/${tg.botInfo?.username || 'bytegames_bot'}?start=ref_${userData.refCode}`;
             document.getElementById('refLink').textContent = refLink;
 
             updateUI();
@@ -1245,19 +1258,17 @@
         }
 
         // =============================================
-        // ===== BYTECOIN ПОПОЛНЕНИЕ (ИСПРАВЛЕННОЕ) =====
+        // ===== BYTECOIN ПОПОЛНЕНИЕ (С WEBHOOK) =====
         // =============================================
         function openBytecoinDeposit() {
             const url = BYTECOIN_APP_URL;
 
             // ===== ОТКРЫВАЕМ ССЫЛКУ =====
             try {
-                // Способ 1: через Telegram
                 tg.openTelegramLink(url);
                 console.log('✅ Открываем Bytecoin через Telegram');
             } catch (e) {
                 console.log('❌ Ошибка открытия через Telegram:', e);
-                // Способ 2: копируем ссылку
                 if (navigator.clipboard) {
                     navigator.clipboard.writeText(url);
                     showResult('📋 Ссылка скопирована! Откройте её в браузере', 0, false);
@@ -1269,7 +1280,7 @@
             // ===== СТАТУС =====
             const statusEl = document.getElementById('depositStatus');
             statusEl.className = 'status-msg pending';
-            statusEl.textContent = '💳 Открываем Bytecoin... После перевода баланс обновится автоматически!';
+            statusEl.textContent = '💳 Открываем Bytecoin... После перевода средства зачислятся автоматически!';
             statusEl.style.display = 'block';
 
             // ===== СОХРАНЯЕМ ЗАПРОС =====
@@ -1294,16 +1305,27 @@
             statusEl.className = 'status-msg pending';
             statusEl.innerHTML = `
                         ⏳ Ожидание перевода...<br>
-                        <small style="color:#8A8A9A;">Если вы уже перевели средства, нажмите кнопку ниже</small><br>
-                        <button onclick="manualDeposit(100)" style="margin-top:8px;background:#00FF88;color:#0D0B14;border:none;padding:6px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
-                            ✅ Проверить пополнение (100 BCN)
+                        <small style="color:#8A8A9A;">Если вы уже перевели средства, нажмите кнопку ниже для проверки</small><br>
+                        <button onclick="manualDeposit()" style="margin-top:8px;background:#00FF88;color:#0D0B14;border:none;padding:6px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
+                            ✅ Проверить пополнение
                         </button>
                     `;
             statusEl.style.display = 'block';
         }
 
-        function manualDeposit(amount) {
+        function manualDeposit() {
+            const amount = parseFloat(document.getElementById('manualDepositAmount').value);
+
+            if (!amount || amount < 1) {
+                const statusEl = document.getElementById('depositStatus');
+                statusEl.className = 'status-msg error';
+                statusEl.textContent = '❌ Введите корректную сумму (мин 1 BCN)';
+                statusEl.style.display = 'block';
+                return;
+            }
+
             updateBalance(amount, 'main');
+
             const statusEl = document.getElementById('depositStatus');
             statusEl.className = 'status-msg success';
             statusEl.textContent = `✅ Зачислено ${amount} BCN на основной баланс!`;
@@ -1314,6 +1336,7 @@
                 updateUserData(currentUserId, { pendingDeposit: userData.pendingDeposit });
             }
 
+            document.getElementById('manualDepositAmount').value = '';
             showResult(`💰 +${amount} BCN`, amount, false);
         }
 
@@ -1540,7 +1563,7 @@
 
             if (pending.length === 0) {
                 container.innerHTML =
-                '<div style="color:#8A8A9A;font-size:13px;text-align:center;padding:20px;">Нет заявок</div>';
+                    '<div style="color:#8A8A9A;font-size:13px;text-align:center;padding:20px;">Нет заявок</div>';
                 return;
             }
 
@@ -1615,7 +1638,7 @@
         }
 
         // =============================================
-        // ===== ПРОМОКОДЫ (ИСПРАВЛЕННЫЕ) =====
+        // ===== ПРОМОКОДЫ =====
         // =============================================
         let promoCodes = [];
 
@@ -1716,7 +1739,6 @@
             loadPromoCodes();
             const promo = promoCodes.find(p => p.code === code);
 
-            // ===== ПРОВЕРКА: ПРОМОКОД НЕ СУЩЕСТВУЕТ =====
             if (!promo) {
                 statusEl.className = 'status-msg error';
                 statusEl.textContent = '❌ Промокод неактивен';
@@ -1725,7 +1747,6 @@
                 return;
             }
 
-            // ===== ПРОВЕРКА: ЛИМИТ ИСЧЕРПАН =====
             if (promo.used >= promo.maxUses) {
                 statusEl.className = 'status-msg error';
                 statusEl.textContent = '❌ Промокод неактивен';
@@ -1734,7 +1755,6 @@
                 return;
             }
 
-            // ===== ПРОВЕРКА: УЖЕ ИСПОЛЬЗОВАН =====
             if ((userData.usedPromos || []).includes(code)) {
                 statusEl.className = 'status-msg error';
                 statusEl.textContent = '❌ Вы уже активировали этот промокод';
@@ -1743,14 +1763,12 @@
                 return;
             }
 
-            // ===== АКТИВАЦИЯ =====
             promo.used++;
             if (!userData.usedPromos) userData.usedPromos = [];
             userData.usedPromos.push(code);
             updateUserData(currentUserId, { usedPromos: userData.usedPromos });
             savePromoCodes();
 
-            // Начисляем на бонусный баланс
             updateBalance(promo.amount, 'bonus');
 
             statusEl.className = 'status-msg success';
@@ -1795,12 +1813,12 @@
                 document.querySelector('.toggle-btn:first-child').style.background = '#7B2FBE';
                 document.querySelector('.toggle-btn:first-child').style.color = '#fff';
                 document.querySelector('.toggle-btn:first-child').style.boxShadow =
-                '0 4px 15px rgba(123,47,190,0.4)';
+                    '0 4px 15px rgba(123,47,190,0.4)';
             } else {
                 document.querySelector('.toggle-btn:last-child').style.background = '#7B2FBE';
                 document.querySelector('.toggle-btn:last-child').style.color = '#fff';
                 document.querySelector('.toggle-btn:last-child').style.boxShadow =
-                '0 4px 15px rgba(123,47,190,0.4)';
+                    '0 4px 15px rgba(123,47,190,0.4)';
             }
         }
 
@@ -1937,7 +1955,7 @@
         }
 
         // =============================================
-        // ===== CRASH ИГРА (С КАЗНОЙ) =====
+        // ===== CRASH ИГРА =====
         // =============================================
         function calculateCrashPoint(bets) {
             let totalBet = bets.reduce((sum, b) => sum + b.amount, 0);
@@ -1950,7 +1968,6 @@
 
             let baseMultiplier = 1 + Math.random() * (maxMultiplier - 1);
 
-            // 60% шанс что множитель ≤ 2.00 (скрыто)
             if (Math.random() < 0.6) {
                 baseMultiplier = Math.min(baseMultiplier, 1 + Math.random() * 1);
             }
