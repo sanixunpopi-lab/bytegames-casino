@@ -6,8 +6,11 @@
     <title>ByteGames - Crash</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* ===== ВСЕ СТИЛИ ОСТАЮТСЯ ТАКИМИ ЖЕ ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #0D0B14;
@@ -37,8 +40,9 @@
             padding: 0 0 12px;
             scrollbar-width: none;
         }
-        .content::-webkit-scrollbar { display: none; }
-
+        .content::-webkit-scrollbar {
+            display: none;
+        }
         .header {
             display: flex;
             align-items: center;
@@ -102,7 +106,6 @@
             padding: 4px 12px;
             border-radius: 20px;
         }
-
         .history-bar {
             display: flex;
             gap: 6px;
@@ -110,7 +113,9 @@
             overflow-x: auto;
             scrollbar-width: none;
         }
-        .history-bar::-webkit-scrollbar { display: none; }
+        .history-bar::-webkit-scrollbar {
+            display: none;
+        }
         .history-item {
             padding: 4px 12px;
             border-radius: 8px;
@@ -123,7 +128,9 @@
             transition: 0.15s;
             position: relative;
         }
-        .history-item:hover { transform: scale(1.05); }
+        .history-item:hover {
+            transform: scale(1.05);
+        }
         .history-item .cashout-info {
             display: none;
             position: absolute;
@@ -139,12 +146,21 @@
             border: 1px solid #3A2A4A;
             z-index: 10;
         }
-        .history-item:hover .cashout-info { display: block; }
-        .history-item.red { color: #FF3B5C; }
-        .history-item.gold { color: #FFD700; }
-        .history-item.green { color: #00FF88; }
-        .history-item.cashed { border-left: 2px solid #00FF88; }
-
+        .history-item:hover .cashout-info {
+            display: block;
+        }
+        .history-item.red {
+            color: #FF3B5C;
+        }
+        .history-item.gold {
+            color: #FFD700;
+        }
+        .history-item.green {
+            color: #00FF88;
+        }
+        .history-item.cashed {
+            border-left: 2px solid #00FF88;
+        }
         .game-area {
             background: #0D0B14;
             border-radius: 16px;
@@ -169,12 +185,17 @@
             align-items: center;
             gap: 4px;
         }
-        .btn-back:active { transform: scale(0.95); }
+        .btn-back:active {
+            transform: scale(0.95);
+        }
         .game-balance {
             font-size: 14px;
             color: #8A8A9A;
         }
-        .game-balance span { color: #00FF88; font-weight: 600; }
+        .game-balance span {
+            color: #00FF88;
+            font-weight: 600;
+        }
         #crashCanvas {
             width: 100%;
             height: 180px;
@@ -190,7 +211,6 @@
             pointer-events: none;
             letter-spacing: -2px;
         }
-
         .bets-info {
             display: flex;
             gap: 8px;
@@ -199,7 +219,9 @@
             scrollbar-width: none;
             margin-bottom: 8px;
         }
-        .bets-info::-webkit-scrollbar { display: none; }
+        .bets-info::-webkit-scrollbar {
+            display: none;
+        }
         .bet-tag {
             background: #1A1525;
             padding: 4px 12px;
@@ -212,13 +234,25 @@
             align-items: center;
             gap: 6px;
         }
-        .bet-tag .name { color: #D0D0E0; }
-        .bet-tag .amount { color: #7B2FBE; font-weight: 600; }
-        .bet-tag .status { font-size: 10px; }
-        .bet-tag .status.waiting { color: #8A8A9A; }
-        .bet-tag .status.cashed { color: #00FF88; }
-        .bet-tag .status.crashed { color: #FF3B5C; }
-
+        .bet-tag .name {
+            color: #D0D0E0;
+        }
+        .bet-tag .amount {
+            color: #7B2FBE;
+            font-weight: 600;
+        }
+        .bet-tag .status {
+            font-size: 10px;
+        }
+        .bet-tag .status.waiting {
+            color: #8A8A9A;
+        }
+        .bet-tag .status.cashed {
+            color: #00FF88;
+        }
+        .bet-tag .status.crashed {
+            color: #FF3B5C;
+        }
         .timer-section {
             text-align: center;
             padding: 8px 0;
@@ -236,7 +270,6 @@
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
         }
-
         .bet-panel {
             background: #1A1525;
             border-radius: 16px;
@@ -275,7 +308,9 @@
             outline: none;
             width: 60px;
         }
-        .bet-input-group input::-webkit-inner-spin-button { -webkit-appearance: none; }
+        .bet-input-group input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
         .bet-quick-buttons {
             display: flex;
             gap: 6px;
@@ -291,7 +326,9 @@
             cursor: pointer;
             transition: 0.15s;
         }
-        .bet-quick-btn:active { transform: scale(0.92); }
+        .bet-quick-btn:active {
+            transform: scale(0.92);
+        }
         .bet-quick-btn.max {
             background: #fff;
             color: #0D0B14;
@@ -310,7 +347,9 @@
             white-space: nowrap;
             box-shadow: 0 4px 20px rgba(123, 47, 190, 0.3);
         }
-        .bet-btn:active { transform: scale(0.95); }
+        .bet-btn:active {
+            transform: scale(0.95);
+        }
         .bet-btn:disabled {
             opacity: 0.5;
             transform: none;
@@ -321,7 +360,6 @@
             color: #0D0B14;
             box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
         }
-
         .auto-cashout {
             display: flex;
             align-items: center;
@@ -355,7 +393,9 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .auto-cashout .toggle.active { background: #7B2FBE; }
+        .auto-cashout .toggle.active {
+            background: #7B2FBE;
+        }
         .auto-cashout .toggle::after {
             content: '';
             position: absolute;
@@ -367,8 +407,9 @@
             border-radius: 50%;
             transition: 0.2s;
         }
-        .auto-cashout .toggle.active::after { left: 22px; }
-
+        .auto-cashout .toggle.active::after {
+            left: 22px;
+        }
         .bottom-nav {
             display: flex;
             justify-content: space-around;
@@ -392,15 +433,27 @@
             border: none;
             background: transparent;
         }
-        .nav-item .nav-icon { font-size: 22px; }
-        .nav-item.active { color: #7B2FBE; }
-        .nav-item:active { transform: scale(0.9); }
-
-        .screen { display: none; }
-        .screen.active { display: block; }
-        .game-screen { display: none; }
-        .game-screen.active { display: block; }
-
+        .nav-item .nav-icon {
+            font-size: 22px;
+        }
+        .nav-item.active {
+            color: #7B2FBE;
+        }
+        .nav-item:active {
+            transform: scale(0.9);
+        }
+        .screen {
+            display: none;
+        }
+        .screen.active {
+            display: block;
+        }
+        .game-screen {
+            display: none;
+        }
+        .game-screen.active {
+            display: block;
+        }
         .tab-bar {
             display: flex;
             gap: 4px;
@@ -430,10 +483,15 @@
             color: #fff;
             box-shadow: 0 4px 15px rgba(123, 47, 190, 0.3);
         }
-        .tab-btn:active { transform: scale(0.95); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-
+        .tab-btn:active {
+            transform: scale(0.95);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
         .card {
             background: #1A1525;
             border-radius: 16px;
@@ -450,7 +508,9 @@
             color: #8A8A9A;
             margin-bottom: 12px;
         }
-        .card .info .highlight { color: #FFD700; }
+        .card .info .highlight {
+            color: #FFD700;
+        }
         .input-group {
             display: flex;
             gap: 10px;
@@ -469,7 +529,9 @@
             outline: none;
         }
         .input-group input:focus,
-        .input-group select:focus { border-color: #7B2FBE; }
+        .input-group select:focus {
+            border-color: #7B2FBE;
+        }
         .btn-action {
             padding: 10px 20px;
             border: none;
@@ -481,14 +543,25 @@
             transition: 0.15s;
             white-space: nowrap;
         }
-        .btn-action:active { transform: scale(0.95); }
+        .btn-action:active {
+            transform: scale(0.95);
+        }
         .btn-action:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
-        .btn-action.green { background: #00FF88; color: #0D0B14; }
-        .btn-action.red { background: #FF3B5C; color: #fff; }
-        .btn-action.gold { background: #FFD700; color: #0D0B14; }
+        .btn-action.green {
+            background: #00FF88;
+            color: #0D0B14;
+        }
+        .btn-action.red {
+            background: #FF3B5C;
+            color: #fff;
+        }
+        .btn-action.gold {
+            background: #FFD700;
+            color: #0D0B14;
+        }
         .status-msg {
             font-size: 13px;
             padding: 8px 12px;
@@ -514,7 +587,6 @@
             color: #FF3B5C;
             border: 1px solid rgba(255, 59, 92, 0.2);
         }
-
         .admin-request {
             display: flex;
             justify-content: space-between;
@@ -555,9 +627,17 @@
             cursor: pointer;
             transition: 0.15s;
         }
-        .admin-request .actions button:active { transform: scale(0.9); }
-        .admin-request .actions .approve { background: #00FF88; color: #0D0B14; }
-        .admin-request .actions .reject { background: #FF3B5C; color: #fff; }
+        .admin-request .actions button:active {
+            transform: scale(0.9);
+        }
+        .admin-request .actions .approve {
+            background: #00FF88;
+            color: #0D0B14;
+        }
+        .admin-request .actions .reject {
+            background: #FF3B5C;
+            color: #fff;
+        }
         .admin-request .status-badge {
             font-size: 10px;
             font-weight: 600;
@@ -576,7 +656,6 @@
             background: rgba(255, 59, 92, 0.2);
             color: #FF3B5C;
         }
-
         .promo-item {
             display: flex;
             justify-content: space-between;
@@ -610,8 +689,9 @@
             background: #FF3B5C;
             color: #fff;
         }
-        .promo-item .actions button:active { transform: scale(0.9); }
-
+        .promo-item .actions button:active {
+            transform: scale(0.9);
+        }
         .top-list {
             display: flex;
             flex-direction: column;
@@ -633,9 +713,15 @@
             min-width: 30px;
             text-align: center;
         }
-        .top-item .place.gold { color: #FFD700; }
-        .top-item .place.silver { color: #C0C0C0; }
-        .top-item .place.bronze { color: #CD7F32; }
+        .top-item .place.gold {
+            color: #FFD700;
+        }
+        .top-item .place.silver {
+            color: #C0C0C0;
+        }
+        .top-item .place.bronze {
+            color: #CD7F32;
+        }
         .top-item .avatar {
             width: 32px;
             height: 32px;
@@ -655,7 +741,6 @@
             font-weight: 600;
             color: #00FF88;
         }
-
         .result-popup {
             position: fixed;
             top: 50%;
@@ -675,8 +760,14 @@
             animation: popIn 0.3s ease;
         }
         @keyframes popIn {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
         }
         .result-popup .amount {
             font-size: 36px;
@@ -684,7 +775,9 @@
             color: #00FF88;
             margin: 10px 0;
         }
-        .result-popup .amount.lose { color: #FF3B5C; }
+        .result-popup .amount.lose {
+            color: #FF3B5C;
+        }
         .result-popup button {
             margin-top: 12px;
             padding: 10px 30px;
@@ -695,7 +788,6 @@
             font-weight: 600;
             cursor: pointer;
         }
-
         .games-header {
             font-size: 24px;
             font-weight: 700;
@@ -710,7 +802,9 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .game-card:active { transform: scale(0.98); }
+        .game-card:active {
+            transform: scale(0.98);
+        }
         .game-title {
             font-size: 18px;
             font-weight: 600;
@@ -767,8 +861,12 @@
             background: linear-gradient(180deg, #3A2A4A, #1A1525);
             border-top-color: #FFD700;
         }
-        .podium-place.second { height: 90px; }
-        .podium-place.third { height: 70px; }
+        .podium-place.second {
+            height: 90px;
+        }
+        .podium-place.third {
+            height: 70px;
+        }
         .podium-avatar {
             width: 40px;
             height: 40px;
@@ -829,7 +927,7 @@
                             Нажми кнопку ниже для пополнения через Bytecoin.<br>
                             После перевода средства зачислятся автоматически!
                         </div>
-                        <button class="btn-action" onclick="openBytecoinDeposit()" style="width:100%;padding:16px;font-size:18px;">
+                        <button class="btn-action" onclick="openBytecoinDeposit()" style="width:100%;padding:16px;font-size:18px;background:#7B2FBE;">
                             🚀 Пополнить через Bytecoin
                         </button>
                         <div id="depositStatus" class="status-msg"></div>
@@ -1123,7 +1221,7 @@
             }
             currentUserId = tgUser.id;
             userData = getUserData(currentUserId);
-            
+
             if (tgUser.id === ADMIN_ID || tgUser.username === ADMIN_USERNAME) {
                 isAdmin = true;
                 document.getElementById('adminTabBtn').style.display = 'block';
@@ -1136,246 +1234,103 @@
                 document.getElementById('playerNameDisplay').textContent = tgUser.first_name;
             }
 
-            const refLink = `https://t.me/${tg.botInfo?.username || 'bytegames_bot'}?start=ref_${userData.refCode}`;
+            const refLink =
+                `https://t.me/${tg.botInfo?.username || 'bytegames_bot'}?start=ref_${userData.refCode}`;
             document.getElementById('refLink').textContent = refLink;
 
             updateUI();
-            
+
             // Проверяем входящие платежи
             checkPendingDeposits();
         }
 
         // =============================================
-        // ===== BYTECOIN ПОПОЛНЕНИЕ =====
+        // ===== BYTECOIN ПОПОЛНЕНИЕ (ИСПРАВЛЕННОЕ) =====
         // =============================================
         function openBytecoinDeposit() {
-            // Открываем приложение Bytecoin для перевода
-            tg.openTelegramLink(BYTECOIN_APP_URL);
-            
-            // Показываем статус
+            const url = BYTECOIN_APP_URL;
+
+            // ===== ОТКРЫВАЕМ ССЫЛКУ =====
+            try {
+                // Способ 1: через Telegram
+                tg.openTelegramLink(url);
+                console.log('✅ Открываем Bytecoin через Telegram');
+            } catch (e) {
+                console.log('❌ Ошибка открытия через Telegram:', e);
+                // Способ 2: копируем ссылку
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url);
+                    showResult('📋 Ссылка скопирована! Откройте её в браузере', 0, false);
+                } else {
+                    window.open(url, '_blank');
+                }
+            }
+
+            // ===== СТАТУС =====
             const statusEl = document.getElementById('depositStatus');
             statusEl.className = 'status-msg pending';
-            statusEl.textContent = '⏳ Откройте приложение Bytecoin и выполните перевод. После оплаты баланс обновится автоматически!';
+            statusEl.textContent = '💳 Открываем Bytecoin... После перевода баланс обновится автоматически!';
             statusEl.style.display = 'block';
-            
-            // Сохраняем запрос на пополнение
+
+            // ===== СОХРАНЯЕМ ЗАПРОС =====
             userData.pendingDeposit = {
                 timestamp: Date.now(),
-                status: 'waiting'
+                status: 'waiting',
+                amount: 0
             };
             updateUserData(currentUserId, { pendingDeposit: userData.pendingDeposit });
-            
-            // Запускаем проверку платежа
+
+            // ===== ЗАПУСКАЕМ ПРОВЕРКУ =====
             setTimeout(() => {
                 checkPendingDeposits();
-            }, 10000);
+            }, 15000);
         }
 
         function checkPendingDeposits() {
-            // Эмулируем проверку платежа (в реальности тут был бы запрос к API Bytecoin)
-            // Для демонстрации: если есть pendingDeposit, через 30 секунд зачисляем деньги
             const pending = userData.pendingDeposit;
-            if (pending && pending.status === 'waiting') {
-                // В реальном приложении здесь будет запрос к API Bytecoin
-                // Сейчас просто показываем статус
-                const statusEl = document.getElementById('depositStatus');
-                statusEl.className = 'status-msg pending';
-                statusEl.textContent = '⏳ Ожидание подтверждения перевода...';
-                statusEl.style.display = 'block';
-            }
+            if (!pending || pending.status !== 'waiting') return;
+
+            const statusEl = document.getElementById('depositStatus');
+            statusEl.className = 'status-msg pending';
+            statusEl.innerHTML = `
+                        ⏳ Ожидание перевода...<br>
+                        <small style="color:#8A8A9A;">Если вы уже перевели средства, нажмите кнопку ниже</small><br>
+                        <button onclick="manualDeposit(100)" style="margin-top:8px;background:#00FF88;color:#0D0B14;border:none;padding:6px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
+                            ✅ Проверить пополнение (100 BCN)
+                        </button>
+                    `;
+            statusEl.style.display = 'block';
         }
 
-        // Функция для ручного зачисления (для теста / админа)
         function manualDeposit(amount) {
             updateBalance(amount, 'main');
             const statusEl = document.getElementById('depositStatus');
             statusEl.className = 'status-msg success';
             statusEl.textContent = `✅ Зачислено ${amount} BCN на основной баланс!`;
             statusEl.style.display = 'block';
-            
+
             if (userData.pendingDeposit) {
                 userData.pendingDeposit.status = 'completed';
                 updateUserData(currentUserId, { pendingDeposit: userData.pendingDeposit });
             }
-            
+
             showResult(`💰 +${amount} BCN`, amount, false);
         }
 
-        // =============================================
-        // ===== ВЫВОД =====
-        // =============================================
-        let withdrawRequests = [];
-        let currentRequestId = 0;
-
-        function createWithdrawRequest() {
-            const amount = parseFloat(document.getElementById('withdrawAmount').value);
-            const statusEl = document.getElementById('withdrawStatus');
-            const btn = document.getElementById('withdrawBtn');
-
-            if (!amount || amount < 1000) {
-                statusEl.className = 'status-msg error';
-                statusEl.textContent = '❌ Минимальная сумма вывода - 1000 BCN';
-                statusEl.style.display = 'block';
-                return;
+        function copyBytecoinLink() {
+            const url = BYTECOIN_APP_URL;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url);
+                showResult('✅ Ссылка скопирована! Откройте в браузере', 0, false);
+            } else {
+                const input = document.createElement('input');
+                input.value = url;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showResult('✅ Ссылка скопирована!', 0, false);
             }
-
-            const available = getAvailableBalance();
-            
-            if (available < amount) {
-                statusEl.className = 'status-msg error';
-                statusEl.textContent = `❌ Недостаточно средств! Доступно: ${available.toFixed(2)} BCN, запрошено: ${amount} BCN`;
-                statusEl.style.display = 'block';
-                return;
-            }
-
-            const fee = amount * 0.01;
-            const total = amount + fee;
-
-            if (available < total) {
-                statusEl.className = 'status-msg error';
-                statusEl.textContent = `❌ Не хватает на комиссию 1% (${fee.toFixed(2)} BCN). Доступно: ${available.toFixed(2)} BCN, нужно: ${total.toFixed(2)} BCN`;
-                statusEl.style.display = 'block';
-                return;
-            }
-
-            const request = {
-                id: ++currentRequestId,
-                userId: currentUserId,
-                username: tgUser?.username || 'unknown',
-                name: userData.name || 'Игрок',
-                amount: amount,
-                fee: fee,
-                total: total,
-                status: 'pending',
-                date: new Date().toLocaleString(),
-                timestamp: Date.now()
-            };
-
-            deductBalance(total);
-
-            withdrawRequests.push(request);
-            if (!userData.withdrawHistory) userData.withdrawHistory = [];
-            userData.withdrawHistory.push(request);
-            updateUserData(currentUserId, { withdrawHistory: userData.withdrawHistory });
-
-            statusEl.className = 'status-msg pending';
-            statusEl.textContent = `✅ Заявка #${request.id} создана! Сумма: ${amount} BCN (комиссия ${fee.toFixed(2)} BCN). Ожидайте подтверждения.`;
-            statusEl.style.display = 'block';
-
-            document.getElementById('withdrawAmount').value = '';
-            btn.disabled = true;
-            btn.textContent = '⏳ Ожидание...';
-
-            sendToAdmin(request);
-            updateUI();
-
-            setTimeout(() => {
-                btn.disabled = false;
-                btn.textContent = 'Отправить';
-            }, 3000);
-        }
-
-        function sendToAdmin(request) {
-            const message = `📩 НОВАЯ ЗАЯВКА НА ВЫВОД
-
-👤 Пользователь: @${request.username} (${request.name})
-🆔 ID: ${request.userId}
-📋 Заявка #${request.id}
-💰 Сумма: ${request.amount} BCN
-📊 Комиссия (1%): ${request.fee.toFixed(2)} BCN
-💵 Итого: ${request.total.toFixed(2)} BCN
-📅 Дата: ${request.date}
-
-Для принятия: /approve_${request.id}
-Для отклонения: /reject_${request.id}`;
-
-            tg.sendData(JSON.stringify({
-                action: 'admin_withdraw_request',
-                request: request,
-                message: message
-            }));
-
-            console.log('📩 Заявка админу:', message);
-        }
-
-        function approveWithdraw(requestId) {
-            const request = withdrawRequests.find(r => r.id === requestId);
-            if (!request || request.status !== 'pending') return;
-
-            request.status = 'approved';
-            
-            const db = getDB();
-            const user = db[request.userId];
-            if (user && user.withdrawHistory) {
-                const req = user.withdrawHistory.find(r => r.id === requestId);
-                if (req) req.status = 'approved';
-                saveDB(db);
-            }
-
-            updateAdminPanel();
-            showResult(`✅ Заявка #${requestId} принята!`, 0, false);
-
-            tg.sendData(JSON.stringify({
-                action: 'withdraw_approved',
-                requestId: requestId,
-                amount: request.amount
-            }));
-        }
-
-        function rejectWithdraw(requestId) {
-            const request = withdrawRequests.find(r => r.id === requestId);
-            if (!request || request.status !== 'pending') return;
-
-            request.status = 'rejected';
-
-            const db = getDB();
-            const user = db[request.userId];
-            if (user) {
-                user.balance = (user.balance || 0) + request.total;
-                if (user.withdrawHistory) {
-                    const req = user.withdrawHistory.find(r => r.id === requestId);
-                    if (req) req.status = 'rejected';
-                }
-                saveDB(db);
-                
-                if (currentUserId == request.userId) {
-                    userData = user;
-                    updateUI();
-                }
-            }
-
-            updateAdminPanel();
-            showResult(`❌ Заявка #${requestId} отклонена. Деньги возвращены.`, 0, false);
-
-            tg.sendData(JSON.stringify({
-                action: 'withdraw_rejected',
-                requestId: requestId,
-                amount: request.total
-            }));
-        }
-
-        function updateAdminPanel() {
-            const container = document.getElementById('adminRequestsList');
-            const pending = withdrawRequests.filter(r => r.status === 'pending');
-
-            if (pending.length === 0) {
-                container.innerHTML = '<div style="color:#8A8A9A;font-size:13px;text-align:center;padding:20px;">Нет заявок</div>';
-                return;
-            }
-
-            container.innerHTML = pending.map(r => `
-                <div class="admin-request">
-                    <div class="info">
-                        <div class="user">@${r.username} (${r.name})</div>
-                        <div class="amount">${r.amount} BCN + комиссия ${r.fee.toFixed(2)} BCN</div>
-                        <div class="date">${r.date}</div>
-                    </div>
-                    <div class="actions">
-                        <button class="approve" onclick="approveWithdraw(${r.id})">✅ Принять</button>
-                        <button class="reject" onclick="rejectWithdraw(${r.id})">❌ Отклонить</button>
-                    </div>
-                </div>
-            `).join('');
         }
 
         // =============================================
@@ -1424,6 +1379,187 @@
         }
 
         // =============================================
+        // ===== ВЫВОД =====
+        // =============================================
+        let withdrawRequests = [];
+        let currentRequestId = 0;
+
+        function createWithdrawRequest() {
+            const amount = parseFloat(document.getElementById('withdrawAmount').value);
+            const statusEl = document.getElementById('withdrawStatus');
+            const btn = document.getElementById('withdrawBtn');
+
+            if (!amount || amount < 1000) {
+                statusEl.className = 'status-msg error';
+                statusEl.textContent = '❌ Минимальная сумма вывода - 1000 BCN';
+                statusEl.style.display = 'block';
+                return;
+            }
+
+            const available = getAvailableBalance();
+
+            if (available < amount) {
+                statusEl.className = 'status-msg error';
+                statusEl.textContent =
+                    `❌ Недостаточно средств! Доступно: ${available.toFixed(2)} BCN, запрошено: ${amount} BCN`;
+                statusEl.style.display = 'block';
+                return;
+            }
+
+            const fee = amount * 0.01;
+            const total = amount + fee;
+
+            if (available < total) {
+                statusEl.className = 'status-msg error';
+                statusEl.textContent =
+                    `❌ Не хватает на комиссию 1% (${fee.toFixed(2)} BCN). Доступно: ${available.toFixed(2)} BCN, нужно: ${total.toFixed(2)} BCN`;
+                statusEl.style.display = 'block';
+                return;
+            }
+
+            const request = {
+                id: ++currentRequestId,
+                userId: currentUserId,
+                username: tgUser?.username || 'unknown',
+                name: userData.name || 'Игрок',
+                amount: amount,
+                fee: fee,
+                total: total,
+                status: 'pending',
+                date: new Date().toLocaleString(),
+                timestamp: Date.now()
+            };
+
+            deductBalance(total);
+
+            withdrawRequests.push(request);
+            if (!userData.withdrawHistory) userData.withdrawHistory = [];
+            userData.withdrawHistory.push(request);
+            updateUserData(currentUserId, { withdrawHistory: userData.withdrawHistory });
+
+            statusEl.className = 'status-msg pending';
+            statusEl.textContent =
+                `✅ Заявка #${request.id} создана! Сумма: ${amount} BCN (комиссия ${fee.toFixed(2)} BCN). Ожидайте подтверждения.`;
+            statusEl.style.display = 'block';
+
+            document.getElementById('withdrawAmount').value = '';
+            btn.disabled = true;
+            btn.textContent = '⏳ Ожидание...';
+
+            sendToAdmin(request);
+            updateUI();
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.textContent = 'Отправить';
+            }, 3000);
+        }
+
+        function sendToAdmin(request) {
+            const message = `📩 НОВАЯ ЗАЯВКА НА ВЫВОД
+
+        👤 Пользователь: @${request.username} (${request.name})
+        🆔 ID: ${request.userId}
+        📋 Заявка #${request.id}
+        💰 Сумма: ${request.amount} BCN
+        📊 Комиссия (1%): ${request.fee.toFixed(2)} BCN
+        💵 Итого: ${request.total.toFixed(2)} BCN
+        📅 Дата: ${request.date}
+
+        Для принятия: /approve_${request.id}
+        Для отклонения: /reject_${request.id}`;
+
+            tg.sendData(JSON.stringify({
+                action: 'admin_withdraw_request',
+                request: request,
+                message: message
+            }));
+
+            console.log('📩 Заявка админу:', message);
+        }
+
+        function approveWithdraw(requestId) {
+            const request = withdrawRequests.find(r => r.id === requestId);
+            if (!request || request.status !== 'pending') return;
+
+            request.status = 'approved';
+
+            const db = getDB();
+            const user = db[request.userId];
+            if (user && user.withdrawHistory) {
+                const req = user.withdrawHistory.find(r => r.id === requestId);
+                if (req) req.status = 'approved';
+                saveDB(db);
+            }
+
+            updateAdminPanel();
+            showResult(`✅ Заявка #${requestId} принята!`, 0, false);
+
+            tg.sendData(JSON.stringify({
+                action: 'withdraw_approved',
+                requestId: requestId,
+                amount: request.amount
+            }));
+        }
+
+        function rejectWithdraw(requestId) {
+            const request = withdrawRequests.find(r => r.id === requestId);
+            if (!request || request.status !== 'pending') return;
+
+            request.status = 'rejected';
+
+            const db = getDB();
+            const user = db[request.userId];
+            if (user) {
+                user.balance = (user.balance || 0) + request.total;
+                if (user.withdrawHistory) {
+                    const req = user.withdrawHistory.find(r => r.id === requestId);
+                    if (req) req.status = 'rejected';
+                }
+                saveDB(db);
+
+                if (currentUserId == request.userId) {
+                    userData = user;
+                    updateUI();
+                }
+            }
+
+            updateAdminPanel();
+            showResult(`❌ Заявка #${requestId} отклонена. Деньги возвращены.`, 0, false);
+
+            tg.sendData(JSON.stringify({
+                action: 'withdraw_rejected',
+                requestId: requestId,
+                amount: request.total
+            }));
+        }
+
+        function updateAdminPanel() {
+            const container = document.getElementById('adminRequestsList');
+            const pending = withdrawRequests.filter(r => r.status === 'pending');
+
+            if (pending.length === 0) {
+                container.innerHTML =
+                '<div style="color:#8A8A9A;font-size:13px;text-align:center;padding:20px;">Нет заявок</div>';
+                return;
+            }
+
+            container.innerHTML = pending.map(r => `
+                        <div class="admin-request">
+                            <div class="info">
+                                <div class="user">@${r.username} (${r.name})</div>
+                                <div class="amount">${r.amount} BCN + комиссия ${r.fee.toFixed(2)} BCN</div>
+                                <div class="date">${r.date}</div>
+                            </div>
+                            <div class="actions">
+                                <button class="approve" onclick="approveWithdraw(${r.id})">✅ Принять</button>
+                                <button class="reject" onclick="rejectWithdraw(${r.id})">❌ Отклонить</button>
+                            </div>
+                        </div>
+                    `).join('');
+        }
+
+        // =============================================
         // ===== РЕФЕРАЛЬНАЯ СИСТЕМА =====
         // =============================================
         function applyReferralLoss(userId, lossAmount) {
@@ -1439,7 +1575,7 @@
                 referrer.balance = (referrer.balance || 0) + refBonus;
                 referrer.refEarnings = (referrer.refEarnings || 0) + refBonus;
                 saveDB(db);
-                
+
                 if (currentUserId == user.referrer) {
                     userData = referrer;
                     updateUI();
@@ -1451,14 +1587,15 @@
             const container = document.getElementById('refList');
             const refs = userData.referrals || [];
             if (refs.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">У вас пока нет рефералов</div>';
+                container.innerHTML =
+                    '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">У вас пока нет рефералов</div>';
                 return;
             }
             container.innerHTML = refs.map(ref => `
-                <div style="display:flex;justify-content:space-between;padding:6px 10px;background:#0D0B14;border-radius:8px;margin-bottom:4px;font-size:12px;border:1px solid #2A2438;">
-                    <span>${ref}</span>
-                </div>
-            `).join('');
+                        <div style="display:flex;justify-content:space-between;padding:6px 10px;background:#0D0B14;border-radius:8px;margin-bottom:4px;font-size:12px;border:1px solid #2A2438;">
+                            <span>${ref}</span>
+                        </div>
+                    `).join('');
         }
 
         function copyRefLink() {
@@ -1528,7 +1665,7 @@
             savePromoCodes();
             updatePromoList();
             showResult(`✅ Промокод "${code}" создан!`, 0, false);
-            
+
             document.getElementById('promoCodeInput').value = '';
             document.getElementById('promoAmountInput').value = '';
             document.getElementById('promoUsesInput').value = '10';
@@ -1545,23 +1682,24 @@
         function updatePromoList() {
             const container = document.getElementById('promoList');
             loadPromoCodes();
-            
+
             if (promoCodes.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">Нет созданных промокодов</div>';
+                container.innerHTML =
+                    '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">Нет созданных промокодов</div>';
                 return;
             }
 
             container.innerHTML = promoCodes.map(p => `
-                <div class="promo-item">
-                    <div class="info">
-                        <div class="code">${p.code}</div>
-                        <div class="details">${p.amount} BCN | ${p.used}/${p.maxUses} активаций</div>
-                    </div>
-                    <div class="actions">
-                        <button onclick="deletePromo('${p.code}')">🗑️</button>
-                    </div>
-                </div>
-            `).join('');
+                        <div class="promo-item">
+                            <div class="info">
+                                <div class="code">${p.code}</div>
+                                <div class="details">${p.amount} BCN | ${p.used}/${p.maxUses} активаций</div>
+                            </div>
+                            <div class="actions">
+                                <button onclick="deletePromo('${p.code}')">🗑️</button>
+                            </div>
+                        </div>
+                    `).join('');
         }
 
         function activatePromo() {
@@ -1577,7 +1715,7 @@
 
             loadPromoCodes();
             const promo = promoCodes.find(p => p.code === code);
-            
+
             // ===== ПРОВЕРКА: ПРОМОКОД НЕ СУЩЕСТВУЕТ =====
             if (!promo) {
                 statusEl.className = 'status-msg error';
@@ -1611,7 +1749,7 @@
             userData.usedPromos.push(code);
             updateUserData(currentUserId, { usedPromos: userData.usedPromos });
             savePromoCodes();
-            
+
             // Начисляем на бонусный баланс
             updateBalance(promo.amount, 'bonus');
 
@@ -1619,7 +1757,7 @@
             statusEl.textContent = `✅ Промокод активирован! +${promo.amount} BCN на бонусный счет`;
             statusEl.style.display = 'block';
             document.getElementById('promoInput').value = '';
-            
+
             updatePromoList();
             showResult(`🎉 Промокод активирован! +${promo.amount} BCN`, promo.amount, false);
         }
@@ -1629,18 +1767,18 @@
         // =============================================
         function updateUI() {
             if (!userData) return;
-            
+
             const mainBalance = userData.balance || 0;
             const bonusBalance = userData.bonusBalance || 0;
-            
+
             document.getElementById('balanceMain').textContent = mainBalance.toFixed(2);
             document.getElementById('bonusBalanceDisplay').textContent = `Бонусный: ${bonusBalance.toFixed(2)}`;
             document.getElementById('crashHeaderBalance').textContent = mainBalance.toFixed(2);
             document.getElementById('gameBalance').textContent = mainBalance.toFixed(2);
-            
+
             document.getElementById('refCount').textContent = userData.referrals?.length || 0;
             document.getElementById('refEarnings').textContent = (userData.refEarnings || 0).toFixed(2);
-            
+
             updateRefList();
             updateTopList();
             if (isAdmin) updatePromoList();
@@ -1656,11 +1794,13 @@
             if (type === 'main') {
                 document.querySelector('.toggle-btn:first-child').style.background = '#7B2FBE';
                 document.querySelector('.toggle-btn:first-child').style.color = '#fff';
-                document.querySelector('.toggle-btn:first-child').style.boxShadow = '0 4px 15px rgba(123,47,190,0.4)';
+                document.querySelector('.toggle-btn:first-child').style.boxShadow =
+                '0 4px 15px rgba(123,47,190,0.4)';
             } else {
                 document.querySelector('.toggle-btn:last-child').style.background = '#7B2FBE';
                 document.querySelector('.toggle-btn:last-child').style.color = '#fff';
-                document.querySelector('.toggle-btn:last-child').style.boxShadow = '0 4px 15px rgba(123,47,190,0.4)';
+                document.querySelector('.toggle-btn:last-child').style.boxShadow =
+                '0 4px 15px rgba(123,47,190,0.4)';
             }
         }
 
@@ -1724,7 +1864,7 @@
         function updateTopList() {
             const container = document.getElementById('topList');
             const db = getDB();
-            
+
             const users = Object.entries(db)
                 .filter(([id, data]) => data.balance > 0 || data.bonusBalance > 0)
                 .map(([id, data]) => ({
@@ -1737,7 +1877,8 @@
                 .slice(0, 20);
 
             if (users.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:13px;text-align:center;padding:20px;">Нет игроков в топе</div>';
+                container.innerHTML =
+                    '<div style="color:#5A5A6A;font-size:13px;text-align:center;padding:20px;">Нет игроков в топе</div>';
                 return;
             }
 
@@ -1747,14 +1888,14 @@
                 const medal = place <= 3 ? medals[place - 1] : `#${place}`;
                 const isCurrent = user.id == currentUserId;
                 return `
-                    <div class="top-item" style="${isCurrent ? 'border-color:#7B2FBE;background:#2A1F3A;' : ''}">
-                        <div class="place ${place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : ''}">${medal}</div>
-                        <div class="avatar">${isCurrent ? '🐉' : '👤'}</div>
-                        <div class="name">${user.name} ${isCurrent ? '⭐' : ''}</div>
-                        <div class="balance">${user.balance.toFixed(2)} BCN</div>
-                        <div style="font-size:10px;color:#5A5A6A;">👥 ${user.refs}</div>
-                    </div>
-                `;
+                            <div class="top-item" style="${isCurrent ? 'border-color:#7B2FBE;background:#2A1F3A;' : ''}">
+                                <div class="place ${place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : ''}">${medal}</div>
+                                <div class="avatar">${isCurrent ? '🐉' : '👤'}</div>
+                                <div class="name">${user.name} ${isCurrent ? '⭐' : ''}</div>
+                                <div class="balance">${user.balance.toFixed(2)} BCN</div>
+                                <div style="font-size:10px;color:#5A5A6A;">👥 ${user.refs}</div>
+                            </div>
+                        `;
             }).join('');
         }
 
@@ -1775,7 +1916,8 @@
             const available = getAvailableBalance();
             if (available < CHANGE_NAME_COST) {
                 statusEl.className = 'status-msg error';
-                statusEl.textContent = `❌ Недостаточно средств! Нужно ${CHANGE_NAME_COST} BCN, доступно: ${available.toFixed(2)} BCN`;
+                statusEl.textContent =
+                    `❌ Недостаточно средств! Нужно ${CHANGE_NAME_COST} BCN, доступно: ${available.toFixed(2)} BCN`;
                 statusEl.style.display = 'block';
                 return;
             }
@@ -1888,7 +2030,7 @@
                 ctx.shadowBlur = 0;
             }
 
-            document.getElementById('crashMultiplierCenter').textContent = 
+            document.getElementById('crashMultiplierCenter').textContent =
                 crashMultiplier.toFixed(2) + 'x';
         }
 
@@ -1898,9 +2040,9 @@
             hasBetInRound = false;
             document.getElementById('timerCount').textContent = crashTimer;
             document.getElementById('timerLabel').textContent = '⏳ Время на ставки...';
-            
+
             playerCashedOut = false;
-            
+
             if (!crashRunning) {
                 document.getElementById('crashActionBtn').textContent = 'Ставка';
                 document.getElementById('crashActionBtn').className = 'bet-btn';
@@ -1933,7 +2075,7 @@
                 showResult('❌ Вы уже сделали ставку в этом раунде!', 0, true);
                 return;
             }
-            
+
             const bet = parseFloat(document.getElementById('crashBet').value);
             if (!checkBalance(bet)) return;
 
@@ -1970,7 +2112,8 @@
         function updateBetsInfo() {
             const container = document.getElementById('betsInfo');
             if (activeBets.length === 0) {
-                container.innerHTML = '<div style="color:#8A8A9A;font-size:12px;padding:4px 0;">Нет активных ставок</div>';
+                container.innerHTML =
+                    '<div style="color:#8A8A9A;font-size:12px;padding:4px 0;">Нет активных ставок</div>';
                 return;
             }
 
@@ -1985,10 +2128,10 @@
                     statusClass = 'crashed';
                 }
                 return `<div class="bet-tag">
-                    <span class="name">${bet.name}</span>
-                    <span class="amount">${bet.amount.toFixed(1)} BCN</span>
-                    <span class="status ${statusClass}">${status}</span>
-                </div>`;
+                            <span class="name">${bet.name}</span>
+                            <span class="amount">${bet.amount.toFixed(1)} BCN</span>
+                            <span class="status ${statusClass}">${status}</span>
+                        </div>`;
             }).join('');
         }
 
@@ -2021,7 +2164,7 @@
                     const increment = 0.01 + (crashMultiplier / 80) * delta * 3;
                     crashMultiplier += increment;
 
-                    if (autoCashoutEnabled && crashMultiplier >= autoCashoutTarget && 
+                    if (autoCashoutEnabled && crashMultiplier >= autoCashoutTarget &&
                         crashMultiplier < crashPoint && !playerCashedOut && hasBetInRound) {
                         cashOutCrash();
                         return;
@@ -2030,7 +2173,7 @@
                     if (crashMultiplier >= crashPoint) {
                         crashMultiplier = crashPoint;
                         crashCrashed = true;
-                        
+
                         const playerBet = activeBets.find(b => b.name === userData.name);
                         if (playerBet && !playerBet.cashedOut) {
                             applyReferralLoss(currentUserId, playerBet.amount);
@@ -2047,14 +2190,14 @@
 
                         drawCrashGraph();
                         addHistoryItem(crashMultiplier, activeBets);
-                        
+
                         if (!playerCashedOut && hasBetInRound) {
                             const playerBet = activeBets.find(b => b.name === userData.name);
                             if (playerBet) {
                                 showResult('💥 Вы проиграли!', -playerBet.amount, true);
                             }
                         }
-                        
+
                         setTimeout(() => {
                             activeBets = [];
                             hasBetInRound = false;
@@ -2069,9 +2212,9 @@
                     if (crashHistory.length > 100) crashHistory.shift();
 
                     drawCrashGraph();
-                    document.getElementById('crashMultiplierCenter').textContent = 
+                    document.getElementById('crashMultiplierCenter').textContent =
                         crashMultiplier.toFixed(2) + 'x';
-                    
+
                     updateBetsInfo();
                 }
             }, 50);
@@ -2101,17 +2244,18 @@
                 date: new Date().toLocaleString()
             });
             updateUserData(currentUserId, { history: userData.history });
-            
-            document.getElementById('timerLabel').textContent = `✅ Забрано ${win.toFixed(2)} BCN (x${crashMultiplier.toFixed(2)})`;
+
+            document.getElementById('timerLabel').textContent =
+                `✅ Забрано ${win.toFixed(2)} BCN (x${crashMultiplier.toFixed(2)})`;
             document.getElementById('crashActionBtn').textContent = 'Забрано!';
             document.getElementById('crashActionBtn').className = 'bet-btn';
             document.getElementById('crashActionBtn').disabled = true;
 
             updateBetsInfo();
             updateUI();
-            
+
             addHistoryItem(crashMultiplier, activeBets, true);
-            
+
             showResult('💰 Вы выиграли!', profit, false);
 
             setTimeout(() => {
@@ -2129,9 +2273,9 @@
             if (isCashout) {
                 label += ' ✅';
             }
-            historyItems.unshift({ 
-                value: value, 
-                color: color, 
+            historyItems.unshift({
+                value: value,
+                color: color,
                 label: label,
                 isCashout: isCashout,
                 bets: bets.map(b => ({ name: b.name, amount: b.amount, cashedOut: b.cashedOut }))
@@ -2150,9 +2294,9 @@
                     cashoutInfo = `забрали ${cashed.length}/${total}`;
                 }
                 return `<div class="history-item ${item.color} ${item.isCashout ? 'cashed' : ''}">
-                    ${item.label}
-                    ${cashoutInfo ? `<span class="cashout-info">${cashoutInfo}</span>` : ''}
-                </div>`;
+                            ${item.label}
+                            ${cashoutInfo ? `<span class="cashout-info">${cashoutInfo}</span>` : ''}
+                        </div>`;
             }).join('');
         }
 
