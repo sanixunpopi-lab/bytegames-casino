@@ -30,171 +30,83 @@
             flex-direction: column;
             box-shadow: 0 0 60px rgba(120, 50, 200, 0.15);
         }
-        .content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 0 0 12px;
-            scrollbar-width: none;
-        }
+        .content { flex: 1; overflow-y: auto; padding: 0 0 12px; scrollbar-width: none; }
         .content::-webkit-scrollbar { display: none; }
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex; align-items: center; justify-content: space-between;
+            padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .header-left { display: flex; align-items: center; gap: 10px; }
         .header-logo {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 18px; font-weight: 700;
             background: linear-gradient(135deg, #7B2FBE, #A855F7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
         }
         .header-profile {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #1A1525;
-            padding: 4px 12px 4px 4px;
-            border-radius: 30px;
-            cursor: pointer;
+            display: flex; align-items: center; gap: 8px; background: #1A1525;
+            padding: 4px 12px 4px 4px; border-radius: 30px; cursor: pointer;
         }
         .header-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
+            width: 28px; height: 28px; border-radius: 50%;
             background: linear-gradient(135deg, #7B2FBE, #4A1A7A);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; position: relative;
         }
         .header-status {
-            width: 8px;
-            height: 8px;
-            background: #00FF88;
-            border-radius: 50%;
-            border: 1.5px solid #0D0B14;
-            position: absolute;
-            bottom: -1px;
-            right: -1px;
+            width: 8px; height: 8px; background: #00FF88; border-radius: 50%;
+            border: 1.5px solid #0D0B14; position: absolute; bottom: -1px; right: -1px;
         }
         .header-name { font-size: 13px; font-weight: 600; color: #fff; }
         .header-balance {
-            font-size: 13px;
-            font-weight: 600;
-            color: #00FF88;
-            background: rgba(0, 255, 136, 0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
+            font-size: 13px; font-weight: 600; color: #00FF88;
+            background: rgba(0, 255, 136, 0.1); padding: 4px 12px; border-radius: 20px;
         }
         .history-bar {
-            display: flex;
-            gap: 6px;
-            padding: 12px 0;
-            overflow-x: auto;
-            scrollbar-width: none;
+            display: flex; gap: 6px; padding: 12px 0;
+            overflow-x: auto; scrollbar-width: none;
         }
         .history-bar::-webkit-scrollbar { display: none; }
         .history-item {
-            padding: 4px 12px;
-            border-radius: 8px;
-            background: #1A1525;
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-            flex-shrink: 0;
-            cursor: pointer;
-            transition: 0.15s;
-            position: relative;
+            padding: 4px 12px; border-radius: 8px; background: #1A1525;
+            font-size: 12px; font-weight: 600; white-space: nowrap;
+            flex-shrink: 0; transition: 0.15s;
         }
-        .history-item:hover { transform: scale(1.05); }
-        .history-item .cashout-info {
-            display: none;
-            position: absolute;
-            bottom: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2A2438;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            color: #D0D0E0;
-            white-space: nowrap;
-            border: 1px solid #3A2A4A;
-            z-index: 10;
-        }
-        .history-item:hover .cashout-info { display: block; }
         .history-item.red { color: #FF3B5C; }
         .history-item.gold { color: #FFD700; }
         .history-item.green { color: #00FF88; }
         .history-item.cashed { border-left: 2px solid #00FF88; }
         .game-area {
-            background: #0D0B14;
-            border-radius: 16px;
+            background: #0D0B14; border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            position: relative;
-            margin-bottom: 12px;
+            padding: 12px; position: relative; margin-bottom: 12px;
         }
         .game-area-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
+            display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 8px;
         }
         .btn-back {
-            background: transparent;
-            border: none;
-            color: #8A8A9A;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            background: transparent; border: none; color: #8A8A9A;
+            font-size: 14px; cursor: pointer;
+            display: flex; align-items: center; gap: 4px;
         }
-        .btn-back:active { transform: scale(0.95); }
         .game-balance { font-size: 14px; color: #8A8A9A; }
         .game-balance span { color: #00FF88; font-weight: 600; }
-        #crashCanvas {
-            width: 100%;
-            height: 180px;
-            border-radius: 12px;
-            background: #0D0B14;
-        }
+        #crashCanvas { width: 100%; height: 180px; border-radius: 12px; background: #0D0B14; }
         .crash-multiplier-center {
-            text-align: center;
-            font-size: 48px;
-            font-weight: 700;
+            text-align: center; font-size: 48px; font-weight: 700;
             color: rgba(255, 255, 255, 0.15);
-            margin: -50px 0 0;
-            pointer-events: none;
-            letter-spacing: -2px;
+            margin: -50px 0 0; pointer-events: none; letter-spacing: -2px;
         }
         .bets-info {
-            display: flex;
-            gap: 8px;
-            padding: 8px 0;
-            overflow-x: auto;
-            scrollbar-width: none;
-            margin-bottom: 8px;
+            display: flex; gap: 8px; padding: 8px 0;
+            overflow-x: auto; scrollbar-width: none; margin-bottom: 8px;
         }
         .bets-info::-webkit-scrollbar { display: none; }
         .bet-tag {
-            background: #1A1525;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 11px;
-            white-space: nowrap;
-            border: 1px solid #2A2438;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            background: #1A1525; padding: 4px 12px; border-radius: 12px;
+            font-size: 11px; white-space: nowrap; border: 1px solid #2A2438;
+            flex-shrink: 0; display: flex; align-items: center; gap: 6px;
         }
         .bet-tag .name { color: #D0D0E0; }
         .bet-tag .amount { color: #7B2FBE; font-weight: 600; }
@@ -205,418 +117,176 @@
         .timer-section { text-align: center; padding: 8px 0; }
         .timer-label { font-size: 13px; color: #7B2FBE; font-weight: 500; }
         .timer-count {
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 36px; font-weight: 700;
             background: linear-gradient(135deg, #4A1A7A, #7B2FBE);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             line-height: 1.2;
         }
-        .bet-panel {
-            background: #1A1525;
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 8px;
-        }
-        .bet-row {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+        .bet-panel { background: #1A1525; border-radius: 16px; padding: 14px; margin-bottom: 8px; }
+        .bet-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
         .bet-input-group {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            background: #0D0B14;
-            border-radius: 12px;
-            padding: 0 12px;
+            flex: 1; display: flex; align-items: center;
+            background: #0D0B14; border-radius: 12px; padding: 0 12px;
             border: 1px solid #2A2438;
         }
-        .bet-input-group label {
-            font-size: 12px;
-            color: #8A8A9A;
-            margin-right: 8px;
-            font-weight: 500;
-        }
+        .bet-input-group label { font-size: 12px; color: #8A8A9A; margin-right: 8px; }
         .bet-input-group input {
-            flex: 1;
-            padding: 10px 0;
-            border: none;
-            background: transparent;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            outline: none;
-            width: 60px;
+            flex: 1; padding: 10px 0; border: none; background: transparent;
+            color: #fff; font-size: 16px; font-weight: 600; outline: none; width: 60px;
         }
         .bet-input-group input::-webkit-inner-spin-button { -webkit-appearance: none; }
         .bet-quick-buttons { display: flex; gap: 6px; }
         .bet-quick-btn {
-            padding: 6px 14px;
-            border-radius: 8px;
-            border: 1px solid #2A2438;
-            background: transparent;
-            color: #8A8A9A;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.15s;
+            padding: 6px 14px; border-radius: 8px; border: 1px solid #2A2438;
+            background: transparent; color: #8A8A9A; font-size: 12px;
+            font-weight: 600; cursor: pointer;
         }
-        .bet-quick-btn:active { transform: scale(0.92); }
-        .bet-quick-btn.max {
-            background: #fff;
-            color: #0D0B14;
-            border-color: #fff;
-        }
+        .bet-quick-btn.max { background: #fff; color: #0D0B14; border-color: #fff; }
         .bet-btn {
-            padding: 10px 28px;
-            border: none;
-            border-radius: 12px;
-            background: #7B2FBE;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.15s;
-            white-space: nowrap;
+            padding: 10px 28px; border: none; border-radius: 12px;
+            background: #7B2FBE; color: #fff; font-size: 16px; font-weight: 700;
+            cursor: pointer; white-space: nowrap;
             box-shadow: 0 4px 20px rgba(123, 47, 190, 0.3);
         }
-        .bet-btn:active { transform: scale(0.95); }
-        .bet-btn:disabled {
-            opacity: 0.5;
-            transform: none;
-            cursor: not-allowed;
-        }
-        .bet-btn.cashout {
-            background: #00FF88;
-            color: #0D0B14;
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
-        }
+        .bet-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .bet-btn.cashout { background: #00FF88; color: #0D0B14; }
         .auto-cashout {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex; align-items: center; gap: 12px;
+            padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .auto-cashout label { font-size: 13px; color: #8A8A9A; font-weight: 500; }
+        .auto-cashout label { font-size: 13px; color: #8A8A9A; }
         .auto-cashout .value {
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            background: #0D0B14;
-            padding: 4px 12px;
-            border-radius: 8px;
-            min-width: 50px;
-            text-align: center;
-            cursor: pointer;
+            font-size: 16px; font-weight: 600; color: #fff;
+            background: #0D0B14; padding: 4px 12px; border-radius: 8px;
+            min-width: 50px; text-align: center; cursor: pointer;
         }
         .auto-cashout .toggle {
-            margin-left: auto;
-            position: relative;
-            width: 44px;
-            height: 24px;
-            background: #2A2438;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.2s;
+            margin-left: auto; position: relative; width: 44px; height: 24px;
+            background: #2A2438; border-radius: 30px; cursor: pointer;
         }
         .auto-cashout .toggle.active { background: #7B2FBE; }
         .auto-cashout .toggle::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
+            content: ''; position: absolute; top: 2px; left: 2px;
+            width: 20px; height: 20px; background: #fff; border-radius: 50%;
             transition: 0.2s;
         }
         .auto-cashout .toggle.active::after { left: 22px; }
         .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0 6px;
+            display: flex; justify-content: space-around; padding: 10px 0 6px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: #0D0B14;
-            margin: 0 -16px;
-            padding-left: 16px;
-            padding-right: 16px;
+            background: #0D0B14; margin: 0 -16px;
+            padding-left: 16px; padding-right: 16px;
         }
         .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            font-size: 10px;
-            color: #5A5A6A;
-            cursor: pointer;
-            transition: 0.2s;
-            padding: 4px 16px;
-            border: none;
-            background: transparent;
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            font-size: 10px; color: #5A5A6A; cursor: pointer;
+            padding: 4px 16px; border: none; background: transparent;
         }
         .nav-item .nav-icon { font-size: 22px; }
         .nav-item.active { color: #7B2FBE; }
-        .nav-item:active { transform: scale(0.9); }
         .screen { display: none; }
         .screen.active { display: block; }
         .game-screen { display: none; }
         .game-screen.active { display: block; }
         .tab-bar {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 12px;
-            background: #1A1525;
-            border-radius: 12px;
-            padding: 4px;
-            overflow-x: auto;
-            flex-wrap: nowrap;
+            display: flex; gap: 4px; margin-bottom: 12px;
+            background: #1A1525; border-radius: 12px; padding: 4px;
+            overflow-x: auto; flex-wrap: nowrap;
         }
         .tab-btn {
-            flex: 1;
-            min-width: 60px;
-            padding: 8px 12px;
-            border: none;
-            background: transparent;
-            color: #8A8A9A;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: 0.2s;
+            flex: 1; min-width: 60px; padding: 8px 12px; border: none;
+            background: transparent; color: #8A8A9A; font-size: 12px;
+            font-weight: 600; cursor: pointer; border-radius: 10px;
             white-space: nowrap;
         }
         .tab-btn.active {
-            background: #7B2FBE;
-            color: #fff;
+            background: #7B2FBE; color: #fff;
             box-shadow: 0 4px 15px rgba(123, 47, 190, 0.3);
         }
-        .tab-btn:active { transform: scale(0.95); }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .card {
-            background: #1A1525;
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
+        .card { background: #1A1525; border-radius: 16px; padding: 16px; margin-bottom: 12px; }
         .card h3 { font-size: 16px; color: #D0D0E0; margin-bottom: 8px; }
         .card .info { font-size: 12px; color: #8A8A9A; margin-bottom: 12px; }
         .card .info .highlight { color: #FFD700; }
-        .input-group {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 10px;
+        .input-group { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+        .input-group input {
+            flex: 1; padding: 10px 12px; border-radius: 12px;
+            border: 1px solid #2A2438; background: #0D0B14; color: #fff;
+            font-size: 16px; outline: none;
         }
-        .input-group input,
-        .input-group select {
-            flex: 1;
-            padding: 10px 12px;
-            border-radius: 12px;
-            border: 1px solid #2A2438;
-            background: #0D0B14;
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-        }
-        .input-group input:focus,
-        .input-group select:focus { border-color: #7B2FBE; }
         .btn-action {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 12px;
-            background: #7B2FBE;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.15s;
+            padding: 10px 20px; border: none; border-radius: 12px;
+            background: #7B2FBE; color: #fff; font-weight: 600; cursor: pointer;
             white-space: nowrap;
         }
-        .btn-action:active { transform: scale(0.95); }
-        .btn-action:disabled { opacity: 0.5; cursor: not-allowed; }
         .btn-action.green { background: #00FF88; color: #0D0B14; }
-        .btn-action.red { background: #FF3B5C; color: #fff; }
         .btn-action.gold { background: #FFD700; color: #0D0B14; }
         .status-msg {
-            font-size: 13px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            margin-top: 8px;
-            display: none;
+            font-size: 13px; padding: 8px 12px; border-radius: 8px;
+            margin-top: 8px; display: none;
         }
-        .status-msg.pending {
-            display: block;
-            background: rgba(255, 215, 0, 0.1);
-            color: #FFD700;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-        .status-msg.success {
-            display: block;
-            background: rgba(0, 255, 136, 0.1);
-            color: #00FF88;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-        }
-        .status-msg.error {
-            display: block;
-            background: rgba(255, 59, 92, 0.1);
-            color: #FF3B5C;
-            border: 1px solid rgba(255, 59, 92, 0.2);
-        }
-        .admin-request {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background: #0D0B14;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            border: 1px solid #2A2438;
-        }
-        .admin-request .info { display: flex; flex-direction: column; gap: 2px; }
-        .admin-request .info .user { font-weight: 600; color: #D0D0E0; }
-        .admin-request .info .amount { font-size: 14px; color: #FFD700; }
-        .admin-request .info .date { font-size: 10px; color: #5A5A6A; }
-        .admin-request .actions { display: flex; gap: 6px; }
-        .admin-request .actions button {
-            padding: 4px 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-        .admin-request .actions button:active { transform: scale(0.9); }
-        .admin-request .actions .approve { background: #00FF88; color: #0D0B14; }
-        .admin-request .actions .reject { background: #FF3B5C; color: #fff; }
+        .status-msg.pending { display: block; background: rgba(255, 215, 0, 0.1); color: #FFD700; }
+        .status-msg.success { display: block; background: rgba(0, 255, 136, 0.1); color: #00FF88; }
+        .status-msg.error { display: block; background: rgba(255, 59, 92, 0.1); color: #FF3B5C; }
         .promo-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 12px;
-            background: #0D0B14;
-            border-radius: 8px;
-            margin-bottom: 6px;
-            border: 1px solid #2A2438;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 12px; background: #0D0B14; border-radius: 8px;
+            margin-bottom: 6px; border: 1px solid #2A2438;
         }
         .promo-item .info { display: flex; flex-direction: column; gap: 2px; }
         .promo-item .info .code { font-weight: 600; color: #FFD700; }
         .promo-item .info .details { font-size: 11px; color: #8A8A9A; }
         .promo-item .actions button {
-            padding: 2px 10px;
-            border: none;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            background: #FF3B5C;
-            color: #fff;
+            padding: 2px 10px; border: none; border-radius: 6px; font-size: 12px;
+            font-weight: 600; cursor: pointer; background: #FF3B5C; color: #fff;
         }
-        .promo-item .actions button:active { transform: scale(0.9); }
         .top-list { display: flex; flex-direction: column; gap: 4px; }
         .top-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
-            background: #1A1525;
-            border-radius: 12px;
-            border: 1px solid #2A2438;
+            display: flex; align-items: center; gap: 12px; padding: 8px 12px;
+            background: #1A1525; border-radius: 12px; border: 1px solid #2A2438;
         }
-        .top-item .place {
-            font-size: 18px;
-            font-weight: 700;
-            color: #5A5A6A;
-            min-width: 30px;
-            text-align: center;
-        }
+        .top-item .place { font-size: 18px; font-weight: 700; color: #5A5A6A; min-width: 30px; text-align: center; }
         .top-item .place.gold { color: #FFD700; }
         .top-item .place.silver { color: #C0C0C0; }
         .top-item .place.bronze { color: #CD7F32; }
         .top-item .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #2A2438;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
+            width: 32px; height: 32px; border-radius: 50%; background: #2A2438;
+            display: flex; align-items: center; justify-content: center; font-size: 14px;
         }
         .top-item .name { flex: 1; font-weight: 500; color: #D0D0E0; }
         .top-item .balance { font-weight: 600; color: #00FF88; }
         .result-popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #1A1525;
-            padding: 30px 40px;
-            border-radius: 20px;
-            border: 2px solid #7B2FBE;
-            box-shadow: 0 0 60px rgba(123, 47, 190, 0.5);
-            text-align: center;
-            z-index: 1000;
-            display: none;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: #1A1525; padding: 30px 40px; border-radius: 20px;
+            border: 2px solid #7B2FBE; box-shadow: 0 0 60px rgba(123, 47, 190, 0.5);
+            text-align: center; z-index: 1000; display: none;
         }
         .result-popup.show { display: block; animation: popIn 0.3s ease; }
         @keyframes popIn {
             0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
             100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
         }
-        .result-popup .amount {
-            font-size: 36px;
-            font-weight: 700;
-            color: #00FF88;
-            margin: 10px 0;
-        }
+        .result-popup .amount { font-size: 36px; font-weight: 700; color: #00FF88; margin: 10px 0; }
         .result-popup .amount.lose { color: #FF3B5C; }
         .result-popup button {
-            margin-top: 12px;
-            padding: 10px 30px;
-            border: none;
-            border-radius: 12px;
-            background: #7B2FBE;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
+            margin-top: 12px; padding: 10px 30px; border: none; border-radius: 12px;
+            background: #7B2FBE; color: #fff; font-weight: 600; cursor: pointer;
         }
         .games-header { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
         .game-card {
-            background: #1A1525;
-            border-radius: 20px;
-            padding: 16px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(123, 47, 190, 0.15);
-            cursor: pointer;
-            transition: 0.2s;
+            background: #1A1525; border-radius: 20px; padding: 16px; margin-bottom: 16px;
+            border: 1px solid rgba(123, 47, 190, 0.15); cursor: pointer;
         }
-        .game-card:active { transform: scale(0.98); }
         .game-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
         .game-preview {
-            height: 100px;
-            background: linear-gradient(135deg, #2A1F3A, #1A1525);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            position: relative;
+            height: 100px; background: linear-gradient(135deg, #2A1F3A, #1A1525);
+            border-radius: 12px; display: flex; align-items: center;
+            justify-content: center; font-size: 40px; position: relative;
         }
         .badge-hot {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: #FF3B5C;
-            padding: 2px 12px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 700;
-            color: #fff;
+            position: absolute; top: 8px; right: 8px; background: #FF3B5C;
+            padding: 2px 12px; border-radius: 12px; font-size: 10px; font-weight: 700;
         }
     </style>
 </head>
@@ -624,13 +294,13 @@
     <div id="app">
         <div class="content">
 
-            <!-- ===== ЭКРАН 1: БАЛАНС ===== -->
+            <!-- ЭКРАН 1: БАЛАНС -->
             <div id="screen-balance" class="screen active">
                 <div style="text-align:center;padding:16px 0 12px;">
                     <div style="font-size:42px;font-weight:700;color:#fff;" id="balanceMain">0.00</div>
                     <div style="font-size:11px;color:#8A8A9A;text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;">ОСНОВНОЙ БАЛАНС</div>
                     <div style="display:flex;background:#1A1525;border-radius:30px;padding:4px;max-width:200px;margin:8px auto;">
-                        <button class="toggle-btn active" onclick="switchBalanceType('main')" style="flex:1;padding:6px 14px;border:none;border-radius:30px;font-size:12px;font-weight:600;cursor:pointer;background:#7B2FBE;color:#fff;box-shadow:0 4px 15px rgba(123,47,190,0.4);">Основной</button>
+                        <button class="toggle-btn active" onclick="switchBalanceType('main')" style="flex:1;padding:6px 14px;border:none;border-radius:30px;font-size:12px;font-weight:600;cursor:pointer;background:#7B2FBE;color:#fff;">Основной</button>
                         <button class="toggle-btn" onclick="switchBalanceType('bonus')" style="flex:1;padding:6px 14px;border:none;border-radius:30px;font-size:12px;font-weight:600;cursor:pointer;background:transparent;color:#8A8A9A;">Бонусный</button>
                     </div>
                     <div style="font-size:12px;color:#8A8A9A;" id="bonusBalanceDisplay">Бонусный: 0.00</div>
@@ -644,22 +314,21 @@
                     <button class="tab-btn" id="adminTabBtn" onclick="switchTab('admin')" style="display:none;">👑 Админ</button>
                 </div>
 
-                <!-- Вкладка Пополнение -->
                 <div id="tab-deposit" class="tab-content active">
                     <div class="card">
                         <h3>💰 Пополнение через Bytecoin</h3>
                         <div class="info">
                             Минимальная сумма: <span class="highlight">10 BCN</span><br>
-                            После перевода средства зачислятся автоматически!
+                            Напиши боту команду <b>/deposit</b> — он создаст счёт и пришлёт ссылку на оплату.<br>
+                            После перевода баланс зачислится автоматически!
                         </div>
-                        <button class="btn-action" onclick="openBytecoinDeposit()" style="width:100%;padding:16px;font-size:18px;background:#7B2FBE;">
-                            🚀 Пополнить через Bytecoin
+                        <button class="btn-action" onclick="openBotDeposit()" style="width:100%;padding:16px;font-size:18px;background:#7B2FBE;">
+                            🚀 Открыть бота для пополнения
                         </button>
                         <div id="depositStatus" class="status-msg"></div>
                     </div>
                 </div>
 
-                <!-- Вкладка Вывод -->
                 <div id="tab-withdraw" class="tab-content">
                     <div class="card">
                         <h3>💸 Вывод средств</h3>
@@ -668,35 +337,26 @@
                             Комиссия: <span class="highlight">1%</span>
                         </div>
                         <div class="input-group">
-                            <input type="number" id="withdrawAmount" placeholder="Сумма вывода" min="1000" step="1">
+                            <input type="number" id="withdrawAmount" placeholder="Сумма вывода" min="1000">
                             <button class="btn-action" id="withdrawBtn" onclick="createWithdrawRequest()">Отправить</button>
                         </div>
                         <div id="withdrawStatus" class="status-msg"></div>
-                        <div id="withdrawRequests"></div>
                     </div>
                 </div>
 
-                <!-- Вкладка Рефералы -->
                 <div id="tab-referral" class="tab-content">
                     <div class="card">
                         <h3>👥 Реферальная система</h3>
-                        <div class="info">
-                            Приводи друзей и получай <span class="highlight">3%</span> от их проигрышей!<br>
-                            Твоя реферальная ссылка:
-                        </div>
+                        <div class="info">Приводи друзей и получай <span class="highlight">3%</span> от их проигрышей!</div>
                         <div style="padding:10px;background:#0D0B14;border-radius:8px;border:1px solid #2A2438;font-size:12px;color:#7B2FBE;word-break:break-all;margin-bottom:8px;" id="refLink">Загрузка...</div>
-                        <button class="btn-action" onclick="copyRefLink()">📋 Копировать ссылку</button>
-                        <div id="referralStats" style="margin-top:12px;">
-                            <div style="display:flex;gap:12px;justify-content:space-around;text-align:center;">
-                                <div><div style="font-size:20px;font-weight:700;color:#FFD700;" id="refCount">0</div><div style="font-size:10px;color:#8A8A9A;">Рефералов</div></div>
-                                <div><div style="font-size:20px;font-weight:700;color:#00FF88;" id="refEarnings">0.00</div><div style="font-size:10px;color:#8A8A9A;">Заработано</div></div>
-                            </div>
+                        <button class="btn-action" onclick="copyRefLink()">📋 Копировать</button>
+                        <div style="display:flex;gap:12px;justify-content:space-around;text-align:center;margin-top:12px;">
+                            <div><div style="font-size:20px;font-weight:700;color:#FFD700;" id="refCount">0</div><div style="font-size:10px;color:#8A8A9A;">Рефералов</div></div>
+                            <div><div style="font-size:20px;font-weight:700;color:#00FF88;" id="refEarnings">0.00</div><div style="font-size:10px;color:#8A8A9A;">Заработано</div></div>
                         </div>
-                        <div id="refList" style="margin-top:12px;"></div>
                     </div>
                 </div>
 
-                <!-- Вкладка Промокоды -->
                 <div id="tab-promo" class="tab-content">
                     <div class="card">
                         <h3>🎫 Активировать промокод</h3>
@@ -711,30 +371,22 @@
                         <div class="card">
                             <h3>🔧 Создать промокод</h3>
                             <div class="input-group">
-                                <input type="text" id="promoCodeInput" placeholder="Код (например SUMMER2024)">
+                                <input type="text" id="promoCodeInput" placeholder="Код">
                             </div>
                             <div class="input-group">
-                                <input type="number" id="promoAmountInput" placeholder="Сумма бонуса" min="1">
-                                <input type="number" id="promoUsesInput" placeholder="Кол-во активаций" min="1" value="10">
+                                <input type="number" id="promoAmountInput" placeholder="Сумма" min="1">
+                                <input type="number" id="promoUsesInput" placeholder="Активаций" min="1" value="10">
                             </div>
-                            <button class="btn-action gold" onclick="createPromo()">➕ Создать промокод</button>
+                            <button class="btn-action gold" onclick="createPromo()">➕ Создать</button>
                         </div>
-
                         <div class="card">
-                            <h3>📋 Список промокодов</h3>
+                            <h3>📋 Промокоды</h3>
                             <div id="promoList"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Вкладка Админ -->
                 <div id="tab-admin" class="tab-content">
-                    <div class="card">
-                        <h3>👑 Заявки на вывод</h3>
-                        <div id="adminRequestsList">
-                            <div style="color:#8A8A9A;font-size:13px;text-align:center;padding:20px;">Нет заявок</div>
-                        </div>
-                    </div>
                     <div class="card">
                         <h3>✏️ Сменить имя (5000 BCN)</h3>
                         <div class="input-group">
@@ -743,34 +395,27 @@
                         </div>
                         <div id="nameStatus" class="status-msg"></div>
                     </div>
-                    <div class="card">
-                        <h3>📢 Перейти в канал</h3>
-                        <button class="btn-action" onclick="openChannel()" style="width:100%;">@bytecasinos</button>
-                    </div>
                 </div>
             </div>
 
-            <!-- ===== ЭКРАН 2: ИГРЫ ===== -->
+            <!-- ЭКРАН 2: ИГРЫ -->
             <div id="screen-games" class="screen">
                 <div class="games-header">Игровой зал</div>
                 <div class="game-card" onclick="openGame('crash')">
                     <div class="game-title">🚀 Crash</div>
-                    <div class="game-preview">
-                        📈📈📈
-                        <span class="badge-hot">HOT</span>
-                    </div>
+                    <div class="game-preview">📈📈📈<span class="badge-hot">HOT</span></div>
                 </div>
             </div>
 
-            <!-- ===== ЭКРАН 3: ТОП ===== -->
+            <!-- ЭКРАН 3: ТОП -->
             <div id="screen-top" class="screen">
-                <div class="top-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                    <div class="top-title" style="font-size:24px;font-weight:700;color:#FFD700;">🏆 Топ дня</div>
+                <div style="margin-bottom:12px;">
+                    <div style="font-size:24px;font-weight:700;color:#FFD700;">🏆 Топ дня</div>
                 </div>
                 <div class="top-list" id="topList"></div>
             </div>
 
-            <!-- ===== ЭКРАН CRASH ===== -->
+            <!-- ЭКРАН CRASH -->
             <div id="game-crash" class="game-screen">
                 <div class="header">
                     <div class="header-left">
@@ -815,7 +460,6 @@
                         </div>
                         <button class="bet-btn" id="crashActionBtn" onclick="placeCrashBet()">Ставка</button>
                     </div>
-
                     <div class="auto-cashout">
                         <label>Автовывод на:</label>
                         <span class="value" id="autoCashoutValue" onclick="editAutoCashout()">2.00</span>
@@ -823,19 +467,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="bottom-nav">
-            <button class="nav-item active" onclick="switchScreen('balance')">
-                <span class="nav-icon">🏠</span> Главная
-            </button>
-            <button class="nav-item" onclick="switchScreen('games')">
-                <span class="nav-icon">🎮</span> Игры
-            </button>
-            <button class="nav-item" onclick="switchScreen('top')">
-                <span class="nav-icon">🏆</span> Топ
-            </button>
+            <button class="nav-item active" onclick="switchScreen('balance')"><span class="nav-icon">🏠</span> Главная</button>
+            <button class="nav-item" onclick="switchScreen('games')"><span class="nav-icon">🎮</span> Игры</button>
+            <button class="nav-item" onclick="switchScreen('top')"><span class="nav-icon">🏆</span> Топ</button>
         </div>
 
         <div class="result-popup" id="resultPopup">
@@ -849,15 +486,12 @@
         // =============================================
         // ===== НАСТРОЙКИ =====
         // =============================================
-        const DEPOSIT_ADDRESS = '@boardrd';
+        const API_URL = 'https://bytegames-webhook-1.onrender.com';
+        const BOT_URL = 'https://t.me/byte_casino_bot';
         const CHANNEL_LINK = 'https://t.me/bytecasinos';
         const CHANGE_NAME_COST = 5000;
         const ADMIN_ID = 8698280423;
         const ADMIN_USERNAME = 'boardrd';
-
-        // ===== BYTECOIN =====
-        const BYTECOIN_APP_URL = 'https://t.me/byteappbot/app?startapp=transfer-deb595b1b8f04be11c5185c3';
-        const MIN_DEPOSIT = 10;
 
         // =============================================
         // ===== БАЗА ДАННЫХ =====
@@ -871,16 +505,9 @@
             const db = getDB();
             if (!db[userId]) {
                 db[userId] = {
-                    name: 'Игрок',
-                    balance: 0,
-                    bonusBalance: 0,
-                    refCode: generateRefCode(),
-                    referrer: null,
-                    referrals: [],
-                    refEarnings: 0,
-                    totalLost: 0,
-                    usedPromos: [],
-                    history: []
+                    name: 'Игрок', balance: 0, bonusBalance: 0,
+                    refCode: generateRefCode(), referrals: [], refEarnings: 0,
+                    usedPromos: []
                 };
                 saveDB(db);
             }
@@ -896,7 +523,7 @@
         }
 
         // =============================================
-        // ===== ТЕКУЩИЙ ПОЛЬЗОВАТЕЛЬ =====
+        // ===== ПОЛЬЗОВАТЕЛЬ =====
         // =============================================
         let tgUser = null;
         let userData = null;
@@ -906,9 +533,7 @@
 
         function initUser() {
             tgUser = tg.initDataUnsafe?.user;
-            if (!tgUser) {
-                tgUser = { id: 123456, username: 'boardrd', first_name: 'Boardrd' };
-            }
+            if (!tgUser) tgUser = { id: 123456, username: 'boardrd', first_name: 'Boardrd' };
             currentUserId = tgUser.id;
             userData = getUserData(currentUserId);
 
@@ -918,45 +543,56 @@
                 document.getElementById('adminPromoSection').style.display = 'block';
             }
 
-            if (tgUser.username) {
-                document.getElementById('playerNameDisplay').textContent = tgUser.username;
-            } else if (tgUser.first_name) {
-                document.getElementById('playerNameDisplay').textContent = tgUser.first_name;
-            }
+            if (tgUser.username) document.getElementById('playerNameDisplay').textContent = tgUser.username;
+            else if (tgUser.first_name) document.getElementById('playerNameDisplay').textContent = tgUser.first_name;
 
-            const refLink = `https://t.me/${tg.botInfo?.username || 'bytegames_bot'}?start=ref_${userData.refCode}`;
+            const refLink = `${BOT_URL}?start=ref_${userData.refCode}`;
             document.getElementById('refLink').textContent = refLink;
 
             updateUI();
+            loadBalanceFromServer();
         }
 
         // =============================================
-        // ===== ПОПОЛНЕНИЕ (АВТОМАТИЧЕСКИЙ ПЕРЕХОД) =====
+        // ===== СИНХРОНИЗАЦИЯ С СЕРВЕРОМ =====
         // =============================================
-        function openBytecoinDeposit() {
-            const url = BYTECOIN_APP_URL;
-            
-            // АВТОМАТИЧЕСКИЙ ПЕРЕХОД В БОТ
+        async function loadBalanceFromServer() {
+            if (!tgUser || !tgUser.id) return;
             try {
-                tg.openTelegramLink(url);
-                console.log('✅ Открываем Bytecoin автоматически');
+                const resp = await fetch(`${API_URL}/balance/${tgUser.id}`);
+                const data = await resp.json();
+                if (data && typeof data.balance === 'number') {
+                    const db = getDB();
+                    if (!db[currentUserId]) db[currentUserId] = {};
+                    db[currentUserId].balance = data.balance;
+                    saveDB(db);
+                    userData = db[currentUserId];
+                    updateUI();
+                    console.log('✅ Баланс синхронизирован:', data.balance);
+                }
             } catch (e) {
-                console.log('❌ Ошибка:', e);
-                window.open(url, '_blank');
+                console.error('❌ Ошибка синхронизации:', e);
             }
+        }
 
-            const statusEl = document.getElementById('depositStatus');
-            statusEl.className = 'status-msg pending';
-            statusEl.textContent = `💳 Переведите минимум ${MIN_DEPOSIT} BCN в Bytecoin. После перевода деньги зачислятся автоматически!`;
-            statusEl.style.display = 'block';
+        async function saveBalanceToServer(balance) {
+            if (!tgUser || !tgUser.id) return;
+            try {
+                await fetch(`${API_URL}/balance/${tgUser.id}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({balance: balance})
+                });
+            } catch (e) {
+                console.error('❌ Ошибка сохранения:', e);
+            }
         }
 
         // =============================================
         // ===== БАЛАНС =====
         // =============================================
         function getAvailableBalance() {
-            if (currentBalanceType === 'bonus') return userData.bonusBalance || 0;
-            return userData.balance || 0;
+            return currentBalanceType === 'bonus' ? (userData.bonusBalance || 0) : (userData.balance || 0);
         }
 
         function updateBalance(amount, type = 'main') {
@@ -964,6 +600,7 @@
             const user = db[currentUserId];
             if (type === 'main') {
                 user.balance = (user.balance || 0) + amount;
+                saveBalanceToServer(user.balance);
             } else {
                 user.bonusBalance = (user.bonusBalance || 0) + amount;
             }
@@ -1002,11 +639,9 @@
             document.getElementById('bonusBalanceDisplay').textContent = `Бонусный: ${bonusBalance.toFixed(2)}`;
             document.getElementById('crashHeaderBalance').textContent = mainBalance.toFixed(2);
             document.getElementById('gameBalance').textContent = mainBalance.toFixed(2);
-
             document.getElementById('refCount').textContent = userData.referrals?.length || 0;
             document.getElementById('refEarnings').textContent = (userData.refEarnings || 0).toFixed(2);
 
-            updateRefList();
             updateTopList();
             if (isAdmin) updatePromoList();
         }
@@ -1019,12 +654,10 @@
             document.querySelectorAll('.toggle-btn').forEach(el => {
                 el.style.background = 'transparent';
                 el.style.color = '#8A8A9A';
-                el.style.boxShadow = 'none';
             });
             const btn = type === 'main' ? '.toggle-btn:first-child' : '.toggle-btn:last-child';
             document.querySelector(btn).style.background = '#7B2FBE';
             document.querySelector(btn).style.color = '#fff';
-            document.querySelector(btn).style.boxShadow = '0 4px 15px rgba(123,47,190,0.4)';
         }
 
         function switchTab(tab) {
@@ -1033,9 +666,8 @@
             const target = document.getElementById('tab-' + tab);
             if (target) target.classList.add('active');
             const btns = document.querySelectorAll('.tab-btn');
-            const btnMap = { deposit: 0, withdraw: 1, referral: 2, promo: 3, admin: 4 };
-            if (btnMap[tab] !== undefined && btns[btnMap[tab]]) btns[btnMap[tab]].classList.add('active');
-            if (tab === 'admin' && isAdmin) updateAdminPanel();
+            const map = { deposit: 0, withdraw: 1, referral: 2, promo: 3, admin: 4 };
+            if (map[tab] !== undefined && btns[map[tab]]) btns[map[tab]].classList.add('active');
             if (tab === 'promo' && isAdmin) updatePromoList();
         }
 
@@ -1044,11 +676,11 @@
             document.querySelectorAll('.game-screen').forEach(el => el.classList.remove('active'));
             const target = document.getElementById('screen-' + screen);
             if (target) target.classList.add('active');
-            document.querySelectorAll('.nav-item').forEach((btn, index) => {
+            document.querySelectorAll('.nav-item').forEach((btn, i) => {
                 btn.classList.remove('active');
-                if (index === 0 && screen === 'balance') btn.classList.add('active');
-                if (index === 1 && screen === 'games') btn.classList.add('active');
-                if (index === 2 && screen === 'top') btn.classList.add('active');
+                if (i === 0 && screen === 'balance') btn.classList.add('active');
+                if (i === 1 && screen === 'games') btn.classList.add('active');
+                if (i === 2 && screen === 'top') btn.classList.add('active');
             });
             if (screen !== 'games') stopCrash();
             if (screen === 'top') updateTopList();
@@ -1057,19 +689,23 @@
         function openGame(game) {
             document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.game-screen').forEach(el => el.classList.remove('active'));
-            const target = document.getElementById('game-' + game);
-            if (target) {
-                target.classList.add('active');
-                currentGame = 'crash';
-                initCrash();
-            }
+            document.getElementById('game-' + game).classList.add('active');
+            currentGame = 'crash';
+            initCrash();
         }
 
         function closeGame() {
             document.querySelectorAll('.game-screen').forEach(el => el.classList.remove('active'));
             document.getElementById('screen-games').classList.add('active');
             stopCrash();
-            currentGame = null;
+        }
+
+        function openBotDeposit() {
+            tg.openTelegramLink(BOT_URL);
+            const statusEl = document.getElementById('depositStatus');
+            statusEl.className = 'status-msg pending';
+            statusEl.textContent = '💳 Напиши боту /deposit и укажи сумму. После оплаты баланс придёт автоматически!';
+            statusEl.style.display = 'block';
         }
 
         function openChannel() { tg.openTelegramLink(CHANNEL_LINK); }
@@ -1077,131 +713,39 @@
         // =============================================
         // ===== ВЫВОД =====
         // =============================================
-        let withdrawRequests = [];
-        let currentRequestId = 0;
-
         function createWithdrawRequest() {
             const amount = parseFloat(document.getElementById('withdrawAmount').value);
             const statusEl = document.getElementById('withdrawStatus');
-            const btn = document.getElementById('withdrawBtn');
-
             if (!amount || amount < 1000) {
                 statusEl.className = 'status-msg error';
                 statusEl.textContent = '❌ Минимальная сумма вывода - 1000 BCN';
                 statusEl.style.display = 'block';
                 return;
             }
-
             const available = getAvailableBalance();
             if (available < amount) {
                 statusEl.className = 'status-msg error';
-                statusEl.textContent = `❌ Недостаточно средств! Доступно: ${available.toFixed(2)} BCN, запрошено: ${amount} BCN`;
+                statusEl.textContent = `❌ Недостаточно! Доступно: ${available.toFixed(2)} BCN`;
                 statusEl.style.display = 'block';
                 return;
             }
-
             const fee = amount * 0.01;
-            const total = amount + fee;
-            if (available < total) {
+            if (available < amount + fee) {
                 statusEl.className = 'status-msg error';
-                statusEl.textContent = `❌ Не хватает на комиссию 1% (${fee.toFixed(2)} BCN)`;
+                statusEl.textContent = `❌ Не хватает на комиссию 1%`;
                 statusEl.style.display = 'block';
                 return;
             }
-
-            const request = {
-                id: ++currentRequestId,
-                userId: currentUserId,
-                username: tgUser?.username || 'unknown',
-                name: userData.name || 'Игрок',
-                amount: amount, fee: fee, total: total,
-                status: 'pending',
-                date: new Date().toLocaleString(),
-                timestamp: Date.now()
-            };
-
-            deductBalance(total);
-            withdrawRequests.push(request);
-            if (!userData.withdrawHistory) userData.withdrawHistory = [];
-            userData.withdrawHistory.push(request);
-            updateUserData(currentUserId, { withdrawHistory: userData.withdrawHistory });
-
+            deductBalance(amount + fee);
             statusEl.className = 'status-msg pending';
-            statusEl.textContent = `✅ Заявка #${request.id} создана! Сумма: ${amount} BCN`;
+            statusEl.textContent = `✅ Заявка на ${amount} BCN создана. Напиши @boardrd для вывода.`;
             statusEl.style.display = 'block';
             document.getElementById('withdrawAmount').value = '';
-            btn.disabled = true;
-            btn.textContent = '⏳ Ожидание...';
-            updateUI();
-            setTimeout(() => { btn.disabled = false; btn.textContent = 'Отправить'; }, 3000);
-        }
-
-        function updateAdminPanel() {
-            const container = document.getElementById('adminRequestsList');
-            const pending = withdrawRequests.filter(r => r.status === 'pending');
-            if (pending.length === 0) {
-                container.innerHTML = '<div style="color:#8A8A9A;font-size:13px;text-align:center;padding:20px;">Нет заявок</div>';
-                return;
-            }
-            container.innerHTML = pending.map(r => `
-                <div class="admin-request">
-                    <div class="info">
-                        <div class="user">@${r.username}</div>
-                        <div class="amount">${r.amount} BCN</div>
-                        <div class="date">${r.date}</div>
-                    </div>
-                    <div class="actions">
-                        <button class="approve" onclick="approveWithdraw(${r.id})">✅</button>
-                        <button class="reject" onclick="rejectWithdraw(${r.id})">❌</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function approveWithdraw(id) {
-            const req = withdrawRequests.find(r => r.id === id);
-            if (req) req.status = 'approved';
-            updateAdminPanel();
-            showResult(`✅ Заявка #${id} принята!`, 0, false);
-        }
-
-        function rejectWithdraw(id) {
-            const req = withdrawRequests.find(r => r.id === id);
-            if (!req) return;
-            req.status = 'rejected';
-            updateBalance(req.total);
-            updateAdminPanel();
-            showResult(`❌ Заявка #${id} отклонена. Деньги возвращены.`, 0, false);
         }
 
         // =============================================
         // ===== РЕФЕРАЛЫ =====
         // =============================================
-        function applyReferralLoss(userId, lossAmount) {
-            const db = getDB();
-            const user = db[userId];
-            if (!user || !user.referrer) return;
-            const refBonus = lossAmount * 0.03;
-            if (refBonus <= 0) return;
-            const referrer = db[user.referrer];
-            if (referrer) {
-                referrer.balance = (referrer.balance || 0) + refBonus;
-                referrer.refEarnings = (referrer.refEarnings || 0) + refBonus;
-                saveDB(db);
-                if (currentUserId == user.referrer) { userData = referrer; updateUI(); }
-            }
-        }
-
-        function updateRefList() {
-            const container = document.getElementById('refList');
-            const refs = userData.referrals || [];
-            if (refs.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">У вас пока нет рефералов</div>';
-                return;
-            }
-            container.innerHTML = refs.map(ref => `<div style="padding:6px 10px;background:#0D0B14;border-radius:8px;margin-bottom:4px;font-size:12px;">${ref}</div>`).join('');
-        }
-
         function copyRefLink() {
             const link = document.getElementById('refLink').textContent;
             if (navigator.clipboard) {
@@ -1211,7 +755,7 @@
         }
 
         // =============================================
-        // ===== ПРОМОКОДЫ (ИСПРАВЛЕНЫ) =====
+        // ===== ПРОМОКОДЫ =====
         // =============================================
         let promoCodes = [];
 
@@ -1230,45 +774,38 @@
             const code = document.getElementById('promoCodeInput').value.trim().toUpperCase();
             const amount = parseFloat(document.getElementById('promoAmountInput').value);
             const uses = parseInt(document.getElementById('promoUsesInput').value);
-
-            if (!code || code.length < 3) { showResult('❌ Введите код (мин 3 символа)', 0, true); return; }
-            if (!amount || amount < 1) { showResult('❌ Введите сумму бонуса', 0, true); return; }
-            if (!uses || uses < 1) { showResult('❌ Введите количество активаций', 0, true); return; }
-            if (promoCodes.find(p => p.code === code)) { showResult('❌ Такой промокод уже существует', 0, true); return; }
-
-            promoCodes.push({ code, amount, maxUses: uses, used: 0, created: Date.now() });
+            if (!code || code.length < 3) { showResult('❌ Введите код', 0, true); return; }
+            if (!amount || amount < 1) { showResult('❌ Введите сумму', 0, true); return; }
+            if (promoCodes.find(p => p.code === code)) { showResult('❌ Такой код уже есть', 0, true); return; }
+            promoCodes.push({ code, amount, maxUses: uses, used: 0 });
             savePromoCodes();
             updatePromoList();
             showResult(`✅ Промокод "${code}" создан!`, 0, false);
             document.getElementById('promoCodeInput').value = '';
             document.getElementById('promoAmountInput').value = '';
-            document.getElementById('promoUsesInput').value = '10';
         }
 
         function deletePromo(code) {
-            if (!confirm(`Удалить промокод "${code}"?`)) return;
+            if (!confirm(`Удалить "${code}"?`)) return;
             promoCodes = promoCodes.filter(p => p.code !== code);
             savePromoCodes();
             updatePromoList();
-            showResult(`❌ Промокод "${code}" удален`, 0, false);
         }
 
         function updatePromoList() {
             const container = document.getElementById('promoList');
             loadPromoCodes();
             if (promoCodes.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">Нет созданных промокодов</div>';
+                container.innerHTML = '<div style="color:#5A5A6A;font-size:12px;text-align:center;padding:8px;">Нет промокодов</div>';
                 return;
             }
             container.innerHTML = promoCodes.map(p => `
                 <div class="promo-item">
                     <div class="info">
                         <div class="code">${p.code}</div>
-                        <div class="details">${p.amount} BCN | ${p.used}/${p.maxUses} активаций</div>
+                        <div class="details">${p.amount} BCN | ${p.used}/${p.maxUses}</div>
                     </div>
-                    <div class="actions">
-                        <button onclick="deletePromo('${p.code}')">🗑️</button>
-                    </div>
+                    <div class="actions"><button onclick="deletePromo('${p.code}')">🗑️</button></div>
                 </div>
             `).join('');
         }
@@ -1276,56 +813,31 @@
         function activatePromo() {
             const code = document.getElementById('promoInput').value.trim().toUpperCase();
             const statusEl = document.getElementById('promoStatus');
-
-            if (!code) {
-                statusEl.className = 'status-msg error';
-                statusEl.textContent = '❌ Введите промокод';
-                statusEl.style.display = 'block';
-                return;
-            }
-
+            if (!code) { statusEl.className = 'status-msg error'; statusEl.textContent = '❌ Введите промокод'; statusEl.style.display = 'block'; return; }
             loadPromoCodes();
             const promo = promoCodes.find(p => p.code === code);
-
-            if (!promo) {
+            if (!promo || promo.used >= promo.maxUses) {
                 statusEl.className = 'status-msg error';
                 statusEl.textContent = '❌ Промокод неактивен';
                 statusEl.style.display = 'block';
-                showResult('❌ Промокод неактивен', 0, true);
                 return;
             }
-
-            if (promo.used >= promo.maxUses) {
-                statusEl.className = 'status-msg error';
-                statusEl.textContent = '❌ Промокод неактивен';
-                statusEl.style.display = 'block';
-                showResult('❌ Промокод неактивен', 0, true);
-                return;
-            }
-
             if ((userData.usedPromos || []).includes(code)) {
                 statusEl.className = 'status-msg error';
-                statusEl.textContent = '❌ Вы уже активировали этот промокод';
+                statusEl.textContent = '❌ Вы уже активировали';
                 statusEl.style.display = 'block';
-                showResult('❌ Вы уже активировали этот промокод', 0, true);
                 return;
             }
-
             promo.used++;
             if (!userData.usedPromos) userData.usedPromos = [];
             userData.usedPromos.push(code);
             updateUserData(currentUserId, { usedPromos: userData.usedPromos });
             savePromoCodes();
-
-            // ЗАЧИСЛЯЕМ НА БОНУСНЫЙ БАЛАНС
             updateBalance(promo.amount, 'bonus');
-
             statusEl.className = 'status-msg success';
-            statusEl.textContent = `✅ Промокод активирован! +${promo.amount} BCN на бонусный баланс`;
+            statusEl.textContent = `✅ +${promo.amount} BCN на бонусный!`;
             statusEl.style.display = 'block';
             document.getElementById('promoInput').value = '';
-            updatePromoList();
-            showResult(`🎉 +${promo.amount} BCN на бонусный баланс!`, promo.amount, false);
         }
 
         // =============================================
@@ -1334,32 +846,26 @@
         function changeName() {
             const newName = document.getElementById('newNameInput').value.trim();
             const statusEl = document.getElementById('nameStatus');
-
             if (!newName || newName.length < 2) {
                 statusEl.className = 'status-msg error';
-                statusEl.textContent = '❌ Имя должно содержать минимум 2 символа';
+                statusEl.textContent = '❌ Минимум 2 символа';
                 statusEl.style.display = 'block';
                 return;
             }
-
-            const available = getAvailableBalance();
-            if (available < CHANGE_NAME_COST) {
+            if (getAvailableBalance() < CHANGE_NAME_COST) {
                 statusEl.className = 'status-msg error';
-                statusEl.textContent = `❌ Недостаточно средств! Нужно ${CHANGE_NAME_COST} BCN`;
+                statusEl.textContent = `❌ Нужно ${CHANGE_NAME_COST} BCN`;
                 statusEl.style.display = 'block';
                 return;
             }
-
             deductBalance(CHANGE_NAME_COST);
             userData.name = newName;
             updateUserData(currentUserId, { name: newName });
             document.getElementById('playerNameDisplay').textContent = newName;
             updateUI();
-
             statusEl.className = 'status-msg success';
-            statusEl.textContent = `✅ Имя изменено на "${newName}"!`;
+            statusEl.textContent = `✅ Имя изменено!`;
             statusEl.style.display = 'block';
-            document.getElementById('newNameInput').value = '';
         }
 
         // =============================================
@@ -1369,49 +875,44 @@
             const container = document.getElementById('topList');
             const db = getDB();
             const users = Object.entries(db)
-                .filter(([id, data]) => data.balance > 0 || data.bonusBalance > 0)
+                .filter(([id, data]) => data.balance > 0)
                 .map(([id, data]) => ({
                     id, name: data.name || 'Игрок',
-                    balance: (data.balance || 0) + (data.bonusBalance || 0),
-                    refs: data.referrals?.length || 0
+                    balance: data.balance || 0
                 }))
                 .sort((a, b) => b.balance - a.balance)
                 .slice(0, 20);
-
             if (users.length === 0) {
-                container.innerHTML = '<div style="color:#5A5A6A;font-size:13px;text-align:center;padding:20px;">Нет игроков в топе</div>';
+                container.innerHTML = '<div style="color:#5A5A6A;font-size:13px;text-align:center;padding:20px;">Нет игроков</div>';
                 return;
             }
-
             const medals = ['🥇', '🥈', '🥉'];
-            container.innerHTML = users.map((user, index) => {
-                const place = index + 1;
+            container.innerHTML = users.map((u, i) => {
+                const place = i + 1;
                 const medal = place <= 3 ? medals[place - 1] : `#${place}`;
-                const isCurrent = user.id == currentUserId;
-                return `
-                    <div class="top-item" style="${isCurrent ? 'border-color:#7B2FBE;background:#2A1F3A;' : ''}">
-                        <div class="place ${place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : ''}">${medal}</div>
-                        <div class="avatar">${isCurrent ? '🐉' : '👤'}</div>
-                        <div class="name">${user.name}</div>
-                        <div class="balance">${user.balance.toFixed(2)} BCN</div>
-                    </div>
-                `;
+                const isCur = u.id == currentUserId;
+                return `<div class="top-item" style="${isCur ? 'border-color:#7B2FBE;' : ''}">
+                    <div class="place ${place === 1 ? 'gold' : place === 2 ? 'silver' : place === 3 ? 'bronze' : ''}">${medal}</div>
+                    <div class="avatar">${isCur ? '🐉' : '👤'}</div>
+                    <div class="name">${u.name}</div>
+                    <div class="balance">${u.balance.toFixed(2)} BCN</div>
+                </div>`;
             }).join('');
         }
 
         // =============================================
-        // ===== CRASH ИГРА =====
+        // ===== CRASH =====
         // =============================================
         function calculateCrashPoint(bets) {
-            let totalBet = bets.reduce((sum, b) => sum + b.amount, 0);
-            let maxMultiplier = 99;
-            if (totalBet <= 100) maxMultiplier = 500;
-            else if (totalBet <= 1000) maxMultiplier = 99;
-            else if (totalBet <= 10000) maxMultiplier = 20;
-            else maxMultiplier = 3;
-            let baseMultiplier = 1 + Math.random() * (maxMultiplier - 1);
-            if (Math.random() < 0.6) baseMultiplier = Math.min(baseMultiplier, 1 + Math.random() * 1);
-            return Math.round(baseMultiplier * 100) / 100;
+            let totalBet = bets.reduce((s, b) => s + b.amount, 0);
+            let max = 99;
+            if (totalBet <= 100) max = 500;
+            else if (totalBet <= 1000) max = 99;
+            else if (totalBet <= 10000) max = 20;
+            else max = 3;
+            let base = 1 + Math.random() * (max - 1);
+            if (Math.random() < 0.6) base = Math.min(base, 1 + Math.random() * 1);
+            return Math.round(base * 100) / 100;
         }
 
         let crashCanvas, crashCtx;
@@ -1428,7 +929,6 @@
         let historyItems = [];
         let activeBets = [];
         let playerCashedOut = false;
-        let roundId = 0;
         let hasBetInRound = false;
         let currentGame = null;
 
@@ -1443,7 +943,6 @@
         }
 
         function resizeCrashCanvas() {
-            const rect = crashCanvas.parentElement.getBoundingClientRect();
             const w = crashCanvas.clientWidth;
             const h = 180;
             crashCanvas.width = w * 2;
@@ -1512,14 +1011,13 @@
 
         function placeCrashBet() {
             if (crashRunning) { showResult('❌ Игра уже идет!', 0, true); return; }
-            if (hasBetInRound) { showResult('❌ Вы уже сделали ставку!', 0, true); return; }
+            if (hasBetInRound) { showResult('❌ Уже сделали ставку!', 0, true); return; }
             const bet = parseFloat(document.getElementById('crashBet').value);
             if (!checkBalance(bet)) return;
-            if (!deductBalance(bet)) { showResult('❌ Недостаточно средств!', 0, true); return; }
-
-            activeBets.push({ id: Date.now(), name: userData.name || 'Игрок', amount: bet, cashedOut: false, cashedAt: 0 });
+            if (!deductBalance(bet)) { showResult('❌ Недостаточно!', 0, true); return; }
+            activeBets.push({ id: Date.now(), name: userData.name || 'Игрок', amount: bet, cashedOut: false });
             hasBetInRound = true;
-            document.getElementById('timerLabel').textContent = `✅ Ставка ${bet} BCN принята!`;
+            document.getElementById('timerLabel').textContent = `✅ Ставка ${bet} BCN!`;
             document.getElementById('crashActionBtn').textContent = 'Ожидание...';
             document.getElementById('crashActionBtn').disabled = true;
             updateBetsInfo();
@@ -1529,20 +1027,19 @@
         function updateBetsInfo() {
             const container = document.getElementById('betsInfo');
             if (activeBets.length === 0) {
-                container.innerHTML = '<div style="color:#8A8A9A;font-size:12px;padding:4px 0;">Нет активных ставок</div>';
+                container.innerHTML = '<div style="color:#8A8A9A;font-size:12px;padding:4px 0;">Нет ставок</div>';
                 return;
             }
-            container.innerHTML = activeBets.map(bet => {
-                let status = '⏳', statusClass = 'waiting';
-                if (bet.cashedOut) { status = '✅'; statusClass = 'cashed'; }
-                else if (crashCrashed && !bet.cashedOut) { status = '💥'; statusClass = 'crashed'; }
-                return `<div class="bet-tag"><span class="name">${bet.name}</span><span class="amount">${bet.amount.toFixed(1)} BCN</span><span class="status ${statusClass}">${status}</span></div>`;
+            container.innerHTML = activeBets.map(b => {
+                let s = '⏳', sc = 'waiting';
+                if (b.cashedOut) { s = '✅'; sc = 'cashed'; }
+                else if (crashCrashed) { s = '💥'; sc = 'crashed'; }
+                return `<div class="bet-tag"><span class="name">${b.name}</span><span class="amount">${b.amount.toFixed(1)} BCN</span><span class="status ${sc}">${s}</span></div>`;
             }).join('');
         }
 
         function startCrashGame() {
             if (crashRunning) return;
-            roundId++;
             crashRunning = true;
             crashCrashed = false;
             crashMultiplier = 1.0;
@@ -1562,23 +1059,15 @@
                 const delta = (now - lastTime) / 1000;
                 lastTime = now;
                 if (!crashCrashed) {
-                    const increment = 0.01 + (crashMultiplier / 80) * delta * 3;
-                    crashMultiplier += increment;
-
-                    if (autoCashoutEnabled && crashMultiplier >= autoCashoutTarget &&
-                        crashMultiplier < crashPoint && !playerCashedOut && hasBetInRound) {
-                        cashOutCrash(); return;
+                    const inc = 0.01 + (crashMultiplier / 80) * delta * 3;
+                    crashMultiplier += inc;
+                    if (autoCashoutEnabled && crashMultiplier >= autoCashoutTarget && crashMultiplier < crashPoint && !playerCashedOut && hasBetInRound) {
+                        cashOutCrash();
+                        return;
                     }
-
                     if (crashMultiplier >= crashPoint) {
                         crashMultiplier = crashPoint;
                         crashCrashed = true;
-                        const playerBet = activeBets.find(b => b.name === userData.name);
-                        if (playerBet && !playerBet.cashedOut) {
-                            applyReferralLoss(currentUserId, playerBet.amount);
-                            userData.totalLost = (userData.totalLost || 0) + playerBet.amount;
-                            updateUserData(currentUserId, { totalLost: userData.totalLost });
-                        }
                         document.getElementById('timerLabel').textContent = '💥 CRASH!';
                         document.getElementById('crashActionBtn').textContent = 'Ставка';
                         document.getElementById('crashActionBtn').className = 'bet-btn';
@@ -1586,7 +1075,7 @@
                         crashRunning = false;
                         clearInterval(crashGameInterval);
                         drawCrashGraph();
-                        addHistoryItem(crashMultiplier, activeBets);
+                        addHistoryItem(crashMultiplier);
                         if (!playerCashedOut && hasBetInRound) {
                             const pb = activeBets.find(b => b.name === userData.name);
                             if (pb) showResult('💥 Вы проиграли!', -pb.amount, true);
@@ -1611,15 +1100,12 @@
 
         function cashOutCrash() {
             if (!crashRunning || crashCrashed || playerCashedOut || !hasBetInRound) return;
-            const playerBet = activeBets.find(b => b.name === userData.name);
-            if (!playerBet || playerBet.cashedOut) return;
-
-            const win = playerBet.amount * crashMultiplier;
-            const profit = win - playerBet.amount;
-            playerBet.cashedOut = true;
-            playerBet.cashedAt = crashMultiplier;
+            const pb = activeBets.find(b => b.name === userData.name);
+            if (!pb || pb.cashedOut) return;
+            const win = pb.amount * crashMultiplier;
+            const profit = win - pb.amount;
+            pb.cashedOut = true;
             playerCashedOut = true;
-
             updateBalance(win);
             document.getElementById('timerLabel').textContent = `✅ Забрано ${win.toFixed(2)} BCN`;
             document.getElementById('crashActionBtn').textContent = 'Забрано!';
@@ -1627,19 +1113,11 @@
             document.getElementById('crashActionBtn').disabled = true;
             updateBetsInfo();
             updateUI();
-            addHistoryItem(crashMultiplier, activeBets, true);
+            addHistoryItem(crashMultiplier, true);
             showResult('💰 Вы выиграли!', profit, false);
-
-            setTimeout(() => {
-                if (crashRunning && !crashCrashed) {
-                    document.getElementById('crashActionBtn').textContent = '💰 Забрать';
-                    document.getElementById('crashActionBtn').className = 'bet-btn cashout';
-                    document.getElementById('crashActionBtn').disabled = false;
-                }
-            }, 3000);
         }
 
-        function addHistoryItem(value, bets = [], isCashout = false) {
+        function addHistoryItem(value, isCashout = false) {
             const color = value >= 3 ? 'gold' : value >= 2 ? 'green' : 'red';
             let label = value.toFixed(2) + 'x' + (isCashout ? ' ✅' : '');
             historyItems.unshift({ value, color, label, isCashout });
@@ -1649,40 +1127,23 @@
 
         function updateHistoryBar() {
             const bar = document.getElementById('historyBar');
-            bar.innerHTML = historyItems.map(item => `<div class="history-item ${item.color} ${item.isCashout ? 'cashed' : ''}">${item.label}</div>`).join('');
+            bar.innerHTML = historyItems.map(i => `<div class="history-item ${i.color} ${i.isCashout ? 'cashed' : ''}">${i.label}</div>`).join('');
         }
 
         function stopCrash() {
             if (crashTimerInterval) clearInterval(crashTimerInterval);
             if (crashGameInterval) clearInterval(crashGameInterval);
             crashRunning = false;
-            document.getElementById('crashActionBtn').disabled = false;
-            document.getElementById('crashActionBtn').textContent = 'Ставка';
-            document.getElementById('crashActionBtn').className = 'bet-btn';
         }
 
-        function halfBet() {
-            const input = document.getElementById('crashBet');
-            input.value = Math.max(0.1, (parseFloat(input.value) / 2).toFixed(1));
-        }
-        function doubleBet() {
-            const input = document.getElementById('crashBet');
-            const available = getAvailableBalance();
-            input.value = Math.min(available, (parseFloat(input.value) * 2).toFixed(1));
-        }
-        function maxBet() {
-            const input = document.getElementById('crashBet');
-            const available = getAvailableBalance();
-            input.value = Math.floor(available * 0.9);
-        }
-        function toggleAutoCashout() {
-            autoCashoutEnabled = !autoCashoutEnabled;
-            document.getElementById('autoCashoutToggle').classList.toggle('active');
-        }
+        function halfBet() { const i = document.getElementById('crashBet'); i.value = Math.max(0.1, (parseFloat(i.value) / 2).toFixed(1)); }
+        function doubleBet() { const i = document.getElementById('crashBet'); i.value = Math.min(getAvailableBalance(), (parseFloat(i.value) * 2).toFixed(1)); }
+        function maxBet() { const i = document.getElementById('crashBet'); i.value = Math.floor(getAvailableBalance() * 0.9); }
+        function toggleAutoCashout() { autoCashoutEnabled = !autoCashoutEnabled; document.getElementById('autoCashoutToggle').classList.toggle('active'); }
         function editAutoCashout() {
-            const val = prompt('Введите множитель для автовывода:', autoCashoutTarget.toFixed(2));
-            if (val !== null && !isNaN(val) && val > 1) {
-                autoCashoutTarget = parseFloat(val);
+            const v = prompt('Множитель:', autoCashoutTarget.toFixed(2));
+            if (v !== null && !isNaN(v) && v > 1) {
+                autoCashoutTarget = parseFloat(v);
                 document.getElementById('autoCashoutValue').textContent = autoCashoutTarget.toFixed(2);
             }
         }
@@ -1690,28 +1151,35 @@
         function showResult(text, amount, isLose) {
             const popup = document.getElementById('resultPopup');
             document.getElementById('resultText').textContent = text;
-            const amountEl = document.getElementById('resultAmount');
-            amountEl.textContent = amount > 0 ? '+' + amount.toFixed(2) + ' BCN' : amount < 0 ? amount.toFixed(2) + ' BCN' : '';
-            amountEl.className = 'amount' + (isLose ? ' lose' : '');
+            const a = document.getElementById('resultAmount');
+            a.textContent = amount > 0 ? '+' + amount.toFixed(2) + ' BCN' : amount < 0 ? amount.toFixed(2) + ' BCN' : '';
+            a.className = 'amount' + (isLose ? ' lose' : '');
             popup.classList.add('show');
         }
-        function closeResult() {
-            document.getElementById('resultPopup').classList.remove('show');
-        }
+        function closeResult() { document.getElementById('resultPopup').classList.remove('show'); }
 
+        // =============================================
+        // ===== ИНИЦИАЛИЗАЦИЯ =====
+        // =============================================
         document.addEventListener('DOMContentLoaded', () => {
             tg.ready();
             initUser();
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', e => {
                 if (e.target.id === 'crashActionBtn' && e.target.textContent === '💰 Забрать') cashOutCrash();
             });
             const initialHistory = [1.76, 2.26, 1.18, 1.74, 3.93];
-            initialHistory.forEach(val => {
-                const color = val >= 3 ? 'gold' : val >= 2 ? 'green' : 'red';
-                historyItems.push({ value: val, color, label: val.toFixed(2) + 'x' });
+            initialHistory.forEach(v => {
+                const c = v >= 3 ? 'gold' : v >= 2 ? 'green' : 'red';
+                historyItems.push({ value: v, color: c, label: v.toFixed(2) + 'x' });
             });
             updateHistoryBar();
             setTimeout(() => initCrash(), 300);
+
+            // Синхронизация каждые 10 сек
+            setInterval(loadBalanceFromServer, 10000);
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden) loadBalanceFromServer();
+            });
         });
     </script>
 </body>
